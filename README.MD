@@ -40,7 +40,7 @@
 
 ### 6. Przypadki użycia (Use Cases).
 
-### 7. Diagramy tabel bazy danych.
-
+### 7. Diagram tabel bazy danych.
+![Diagram tabel bazy danych](./diagram-bazy-danych.png)
 ### 8. Diagram klas.
 ![Diagram klas](./diagram-klas.png)
