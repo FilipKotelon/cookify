@@ -56,7 +56,7 @@
 ### 5. Scenariusz przypadków użycia (User Stories).
 
 ### 6. Przypadki użycia (Use Cases).
-
+![Diagram przypadków użycia](./diagram-przypadkow-uzycia.png)
 ### 7. Diagram tabel bazy danych.
 ![Diagram tabel bazy danych](./diagram-bazy-danych.png)
 ### 8. Diagram klas.
