@@ -19,18 +19,27 @@
 
 ## Dokumentacja aplikacji Cookify
 
-1. Karta projektu.
+### 1. Karta projektu.
 
-2. Analiza rynku.
+### 2. Analiza rynku.
 
-3. Ryzyka.
+### 3. Ryzyka.
 
-4. Plan realizacji projektu.
+### 4. Plan realizacji projektu.
+1. Stworzenie projektu graficznego aplikacji.
+2. Wybranie technologii najlepszych do wdrożenia strony internetowej.
+3. Ustalenie struktury bazy danych.
+4. Rozdzielenie zadań odnośnie kodowania wśród członków projektu.
+5. Stworzenie struktury bazy danych.
+6. Kodowanie frontu strony internetowej.
+7. Testowanie strony.
+8. Wybranie platformy do wypuszczenia strony internetowej.
+9. Wypuszczenie aplikacji
 
-5. Scenariusz przypadków użycia (User Stories).
+### 5. Scenariusz przypadków użycia (User Stories).
 
-6. Przypadki użycia (Use Cases).
+### 6. Przypadki użycia (Use Cases).
 
-7. Diagramy tabel bazy danych.
+### 7. Diagramy tabel bazy danych.
 
-8. Diagramy klas.
+### 8. Diagramy klas.
