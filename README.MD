@@ -32,7 +32,7 @@
 1. Istnieje spora ilość portali dla miłośników gotowania (gotujmy.pl, mediaknorr.pl, przepisy.pl by wymienić kilka).
 2. Portale te jednak są wykonane w mizerny sposób, w czym upatrujemy swojej szansy.
 3. Dla wielu osób pierwszym krokiem przed wykonaniem przepisu jest wyszukanie go w internecie. Przy odpowiednim pozycjonowaniu strony istnieje szansa, że użytkownik wejdzie na naszą aplikacje jako pierwszą.
-4 .Wieczny popyt. Ludzie muszą jeść, a czasem najdzie ich ochota na zrobienie czegoś samemu.
+4. Wieczny popyt. Ludzie muszą jeść, a czasem najdzie ich ochota na zrobienie czegoś samemu.
 
 ### 3. Ryzyka.
 
