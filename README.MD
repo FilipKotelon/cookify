@@ -42,4 +42,5 @@
 
 ### 7. Diagramy tabel bazy danych.
 
-### 8. Diagramy klas.
+### 8. Diagram klas.
+![Diagram klas](./diagram-klas.png)
