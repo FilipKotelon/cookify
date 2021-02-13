@@ -1,7 +1,5 @@
 # Aplikacja Cookify
 
-## Opis aplikacji
-
 ## Analiza SWOT
 
 **S - (Strengths)** – mocne strony: wszystko to co stanowi atut, przewagę, zaletę.
