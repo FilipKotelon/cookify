@@ -28,6 +28,15 @@
 
 **T - (Threats)** – zagrożenia: wszystko to co stwarza niebezpieczeństwo zmiany niekorzystnej.
 
+  - istnienie podobnych aplikacji bądź też stron o podobnej tematyce
+  - możliwość pojawienia się podobnych aplikacji bądź też stron o podobnej tematyce
+  - konkurencja kopiująca pomysły
+  - zmiana potrzeb potencjalnych odbiorców aplikacji
+  - nowe prawa i regulacje
+  - SPAM oraz niechciane reklamy
+  - aktualizacja software’u przeglądarki
+
+
 ## Dokumentacja aplikacji Cookify
 
 ### 1. Karta projektu.
