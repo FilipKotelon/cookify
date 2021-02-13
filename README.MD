@@ -12,12 +12,12 @@
 
 **W - (Weaknesses)** – słabe strony: wszystko to co stanowi słabość, barierę, wadę:
 
- - zgrany zespół,
- - doświadczenie jak i pasja do gotowania i pieczenia,
- - znajomość technologii pozwalających na zbudowanie prostej i eleganckiej aplikacji,
- - zapotrzebowanie na pomysły na posiłki,
- - możliwość interakcji z użytkownikami poprzez potencjalne publikowanie dobrze skonstruowanych
-   przepisów.
+  - Wąska grupa docelowa odbiorców
+  - Ograniczone możliwości rozwoju aplikacji
+  - Duża konkurencja w postaci podobnych aplikacji
+  - Konieczna weryfikacja przepisów dodanych przez użytkowników 
+  - Konieczność posiadania rozbudowanej bazy przepisów na start
+
 
 **O - (Opportunities)** – szanse: wszystko to co stwarza szansę korzystnej zmiany:
 
