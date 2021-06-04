@@ -5,6 +5,9 @@ namespace Cookify.Models
 {
 	public class ImageRecipe
 	{
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         public int ImageId { get; set; }
 

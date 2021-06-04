@@ -5,6 +5,9 @@ namespace Cookify.Models
 {
     public class FavoriteRecipe
     {
+        [Key]
+        public int Id { get; set; }
+
         [Required]
         public int ApplicationUserId { get; set; }
 
