@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cookify", "Cookify\Cookify.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cookify.DataAccess", "Cookify.DataAccess\Cookify.DataAccess.csproj", "{D1402BE4-C3E8-4FC7-B48F-0ACE0F69D7C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cookify.Models", "Cookify.Models\Cookify.Models.csproj", "{8450C97E-D45F-4938-AA96-CA402409827F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cookify.Models", "Cookify.Models\Cookify.Models.csproj", "{8450C97E-D45F-4938-AA96-CA402409827F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
