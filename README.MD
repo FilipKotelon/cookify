@@ -1,5 +1,36 @@
 # Aplikacja Cookify
 
+Aplikacja wykonana na potrzeby przedmiotu **Programowanie profesjonalnej aplikacji mobilnej lub webowej** w **Wyższej Szkole Ekonomii i Informatyki w Krakowie**.
+
+
+## Instrukcja
+
+By możliwe było uruchomienie aplikacji konieczne jest:
+  - zainstalowanie oprogramowania Visual Studio 2019 (wystarczy wersja community),
+  - zainstalowanie Visual Studio 2019 SDK .NET 5.0,
+  - zainstalowanie .NET 5 Runtime,
+  - zainstalowanie MsSQL Server,
+  - sklonowanie repozytorium:
+              
+        git clone https://github.com/FilipKotelon/cookify.git
+  
+  - wpisanie w konsoli narzędzia NuGet Package Manager (po otworzeniu Visual Studio otworzyć ją można klikając Tools -> NuGet Package Manager -> Package Manager Console) polecenia, które utworzy bazę danych:
+
+        update-database
+        
+  - domyślna nazwa serwera bazy danych to `localhost`, a nazwa samej bazy danych to `Cookify-database`. Obie można zmienić edytując `DefaultConnection` w plliku `appsettings.json` znajdującym się wewnątrz projektu **Cookify**.
+
+  Aplikację uruchomić można za pośrednictwem **Visual Studio**.
+  
+  Jeśli **Visual Studio** nie jest zainstalowane, aplikację uruchomić można bezpośrednio z lini poleceń z poziomu głównego katalogu projektu po uprzednim utworzeniu bazy danych:
+   - utworzenie bazy danych:
+
+         dotnet ef update-database --project ./Cookify.DataAccess/Cookify.DataAccess.csproj
+
+   - uruchomienie aplikacji:
+            
+         dotnet run --project ./Cookify.Web/Cookify.Web.csproj
+
 ## Analiza SWOT
 
 **S - (Strengths)** – mocne strony: wszystko to co stanowi atut, przewagę, zaletę:
