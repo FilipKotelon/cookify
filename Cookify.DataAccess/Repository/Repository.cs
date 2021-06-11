@@ -24,7 +24,7 @@ namespace Cookify.DataAccess.Repository
 			dbSet.Add(entity);
 		}
 
-		public T Get(int id)
+		public T Get(string id)
 		{
 			return dbSet.Find(id);
 		}
@@ -74,7 +74,7 @@ namespace Cookify.DataAccess.Repository
 			return query.FirstOrDefault();
 		}
 
-		public void Remove(int id)
+		public void Remove(string id)
 		{
 			T entity = dbSet.Find(id);
 			Remove(entity);
