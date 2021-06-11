@@ -6,16 +6,16 @@ namespace Cookify.Models
 	public class ImageRecipe
 	{
         [Key]
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required]
-        public int ImageId { get; set; }
+        public string ImageId { get; set; }
 
         [ForeignKey("ImageId")]
         public Image Image { get; set; }
         
         [Required]
-        public int RecipeId { get; set; }
+        public string RecipeId { get; set; }
 
         [ForeignKey("RecipeId")]
         public Recipe Recipe { get; set; }

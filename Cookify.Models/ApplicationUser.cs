@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cookify.Models
 {
-	public class ApplicationUser
+	public class ApplicationUser : IdentityUser
 	{
 		[Key]
-		public int Id { get; set; }
+		public string Id { get; set; }
 		public string Name { get; set; }
 		public bool Accepted { get; set; }
 	}
