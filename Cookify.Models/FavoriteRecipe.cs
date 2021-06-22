@@ -6,7 +6,7 @@ namespace Cookify.Models
     public class FavoriteRecipe
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string ApplicationUserId { get; set; }
@@ -15,7 +15,7 @@ namespace Cookify.Models
         public ApplicationUser ApplicationUser { get; set; }
 
         [Required]
-        public string RecipeId { get; set; }
+        public int RecipeId { get; set; }
 
         [ForeignKey("RecipeId")]
         public Recipe Recipe { get; set; }

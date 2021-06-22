@@ -13,7 +13,6 @@ namespace Cookify.DataAccess.Repository.IRepository
 		IngredientRepository Ingredient { get; }
 		RecipeCategoryRepository RecipeCategory { get; }
 		RecipeRepository Recipe { get; }
-		StepRepository Step { get; }
 		void Save();
 	}
 }

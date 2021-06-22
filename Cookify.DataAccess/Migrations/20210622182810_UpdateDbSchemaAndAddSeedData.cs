@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Cookify.DataAccess.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class UpdateDbSchemaAndAddSeedData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,7 +53,8 @@ namespace Cookify.DataAccess.Migrations
                 name: "Image",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Path = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -66,7 +67,9 @@ namespace Cookify.DataAccess.Migrations
                 name: "Ingredient",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -78,25 +81,13 @@ namespace Cookify.DataAccess.Migrations
                 name: "RecipeCategory",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RecipeCategory", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Step",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Step", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,7 +200,8 @@ namespace Cookify.DataAccess.Migrations
                 name: "Comment",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
@@ -227,11 +219,12 @@ namespace Cookify.DataAccess.Migrations
                 name: "Recipe",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Accepted = table.Column<bool>(type: "bit", nullable: false),
-                    RecipeCategoryId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    RecipeCategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -248,9 +241,10 @@ namespace Cookify.DataAccess.Migrations
                 name: "FavoriteRecipe",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RecipeId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    RecipeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -273,9 +267,10 @@ namespace Cookify.DataAccess.Migrations
                 name: "ImageRecipe",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ImageId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RecipeId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImageId = table.Column<int>(type: "int", nullable: false),
+                    RecipeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -298,9 +293,10 @@ namespace Cookify.DataAccess.Migrations
                 name: "IngredientRecipe",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    IngredientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    RecipeId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IngredientId = table.Column<int>(type: "int", nullable: false),
+                    RecipeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -317,6 +313,62 @@ namespace Cookify.DataAccess.Migrations
                         principalTable: "Recipe",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Image",
+                columns: new[] { "Id", "Path", "Title" },
+                values: new object[,]
+                {
+                    { 1, "https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_960_720.jpg", "Burger" },
+                    { 2, "https://cdn.pixabay.com/photo/2014/12/15/13/40/penne-569072_960_720.jpg", "Pasta" },
+                    { 3, "https://cdn.pixabay.com/photo/2014/02/01/17/28/apple-256263_960_720.jpg", "Apple" },
+                    { 4, "https://cdn.pixabay.com/photo/2017/01/17/17/05/spaghetti-1987454_960_720.jpg", "Spaghetti" },
+                    { 5, "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg", "Pizza" },
+                    { 6, "https://cdn.pixabay.com/photo/2017/03/31/10/56/waffles-2190961_960_720.jpg", "Eggs" },
+                    { 7, "https://cdn.pixabay.com/photo/2017/03/13/13/39/pancakes-2139844_960_720.jpg", "Pancakes" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Ingredient",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[,]
+                {
+                    { 7, "The potato is a root vegetable native to the Americas, a starchy tuber of the plant Solanum tuberosum, and the plant itself is a perennial in the nightshade family, Solanaceae", "Potato" },
+                    { 6, "Milk (also known in unfermented form as sweet milk) is a nutrient-rich liquid food produced by the mammary glands of mammals. ", "Milk" },
+                    { 5, "Butter is a dairy product made from the fat and protein components of churned cream. It is a semi-solid emulsion at room temperature, consisting of approximately 80% butterfat.", "Butter" },
+                    { 4, "Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistoric times. Beef is a source of protein and nutrients.", "Beef" },
+                    { 3, "An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus.", "Apple" },
+                    { 2, "Cucumber (Cucumis sativus) is a widely-cultivated creeping vine plant in the Cucurbitaceae gourd family that bears cucumiform fruits, which are used as vegetables.", "Cucumber" },
+                    { 1, "The tomato is the edible berry of the plant Solanum lycopersicum, commonly known as a tomato plant. The species originated in western South America and Central America.", "Tomato" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RecipeCategory",
+                columns: new[] { "Id", "Title" },
+                values: new object[,]
+                {
+                    { 1, "Vegetarian" },
+                    { 2, "Dinner" },
+                    { 3, "Breakfast" },
+                    { 4, "Healthy" },
+                    { 5, "Fastfood" },
+                    { 6, "Vegetarian" },
+                    { 7, "Dessert" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Recipe",
+                columns: new[] { "Id", "Accepted", "Description", "Name", "RecipeCategoryId" },
+                values: new object[,]
+                {
+                    { 1, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Lorem ipsum", 1 },
+                    { 2, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Dolor sit amet", 2 },
+                    { 3, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Consectetur adipiscing elit", 3 },
+                    { 4, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Sed diam purus", 4 },
+                    { 5, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Tincidunt eget suscipit", 4 },
+                    { 6, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "A, imperdiet sit amet lacus", 6 },
+                    { 7, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Vivamus non turpis", 7 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -427,9 +479,6 @@ namespace Cookify.DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "IngredientRecipe");
-
-            migrationBuilder.DropTable(
-                name: "Step");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

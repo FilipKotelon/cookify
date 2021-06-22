@@ -6,7 +6,7 @@ namespace Cookify.Models
 	public class Comment
 	{
 		[Key]
-		public string Id { get; set; }
+		public int Id { get; set; }
 
 		[Required]
 		public string ApplicationUserId { get; set; }
