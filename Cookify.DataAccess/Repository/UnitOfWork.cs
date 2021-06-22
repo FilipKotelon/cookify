@@ -15,7 +15,6 @@ namespace Cookify.DataAccess.Repository
 		public IngredientRepository Ingredient { get; private set; }
 		public RecipeCategoryRepository RecipeCategory { get; private set; }
 		public RecipeRepository Recipe { get; private set; }
-		public StepRepository Step { get; private set; }
 
 		public UnitOfWork(ApplicationDbContext db)
 		{
@@ -29,7 +28,6 @@ namespace Cookify.DataAccess.Repository
 			Ingredient = new IngredientRepository(_db);
 			RecipeCategory = new RecipeCategoryRepository(_db);
 			Recipe = new RecipeRepository(_db);
-			Step = new StepRepository(_db);
 		}
 
 		public void Dispose()

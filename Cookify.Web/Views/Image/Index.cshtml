@@ -5,7 +5,7 @@
 <br />
 <div class="row">
     <div class="col-6">
-        <h2 class="text-primary">List of ingredients:</h2>
+        <h2 class="text-primary">List of images:</h2>
     </div>
 </div>
 
@@ -20,20 +20,24 @@
                         Id
                     </th>
                     <th>
-                        Name
+                        Path / URL
                     </th>
                     <th>
-                        Description
+                        Title
+                    </th>
+                    <th>
+                        Preview
                     </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var ingredient in Model)
+                @foreach (var image in Model)
                 {
                 <tr>
-                    <td width="20%">@ingredient.Id</td>
-                    <td width="30%">@ingredient.Name</td>
-                    <td width="50%">@ingredient.Description</td>
+                    <td width="20%">@image.Id</td>
+                    <td width="30%"><a href="@image.Path">@image.Path</a></td>
+                    <td width="20%">@image.Title</td>
+                    <td width="30%"><img src="@image.Path" alt="@image.Title" width="200px" /></td>
                 </tr>
                 }
             </tbody>
@@ -41,6 +45,6 @@
     }
     else
     {
-        <p>There are no ingredients in the database!</p>
+        <p>There are no images in the database!</p>
     }
 </div>

@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Cookify.Models
 {
 	public class ApplicationUser : IdentityUser
 	{
-		[Key]
-		public string Id { get; set; }
+		[Required]
 		public string Name { get; set; }
 		public bool Accepted { get; set; }
+
+		[NotMapped]
+		public string Role { get; set; }
 	}
 }

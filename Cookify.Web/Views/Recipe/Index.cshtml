@@ -5,7 +5,7 @@
 <br />
 <div class="row">
     <div class="col-6">
-        <h2 class="text-primary">List of ingredients:</h2>
+        <h2 class="text-primary">List of images:</h2>
     </div>
 </div>
 
@@ -25,15 +25,23 @@
                     <th>
                         Description
                     </th>
+                    <th>
+                        Accepted
+                    </th>
+                    <th>
+                        Category
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var ingredient in Model)
+                @foreach (var recipe in Model)
                 {
                 <tr>
-                    <td width="20%">@ingredient.Id</td>
-                    <td width="30%">@ingredient.Name</td>
-                    <td width="50%">@ingredient.Description</td>
+                    <td width="10%">@recipe.Id</td>
+                    <td width="20%">@recipe.Name</td>
+                    <td width="30%">@recipe.Description</td>
+                    <td width="10%"><input type="checkbox" checked="@recipe.Accepted" /></td>
+                    <td width="30%">@recipe.RecipeCategory.Title</td>
                 </tr>
                 }
             </tbody>
@@ -41,6 +49,6 @@
     }
     else
     {
-        <p>There are no ingredients in the database!</p>
+        <p>There are no images in the database!</p>
     }
 </div>
