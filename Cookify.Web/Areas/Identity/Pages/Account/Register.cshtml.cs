@@ -118,7 +118,16 @@ namespace Cookify.Web.Areas.Identity.Pages.Account
                         await _roleManager.CreateAsync(new IdentityRole(StaticDetails.Role_User));
                     }
                     // for testing purposes every user is Assigned admin role by user 
-                    await _userManager.AddToRoleAsync(user, StaticDetails.Role_Admin); 
+                    ///await _userManager.AddToRoleAsync(user, StaticDetails.Role_Admin); 
+                    if(user.Role == null)
+                    {
+                        await _userManager.AddToRoleAsync(user, StaticDetails.Role_User);
+                    } else
+                    {
+                        await _userManager.AddToRoleAsync(user, user.Role);
+                    }
+
+
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     //var callbackUrl = Url.Page(
@@ -136,8 +145,16 @@ namespace Cookify.Web.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                        if(user.Role == StaticDetails.Role_User)
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            return LocalRedirect(returnUrl);
+                        } else
+                        {
+                            // admin is registering a new user
+                            return RedirectToAction("Index", "User", new { Area = "Admin" });
+                        }
+                        
                     }
                 }
                 foreach (var error in result.Errors)
