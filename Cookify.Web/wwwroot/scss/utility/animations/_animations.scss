@@ -1,0 +1,39 @@
+.animate{
+    &{
+        opacity: 1;
+        position: relative;
+        transition: all .6s, opacity .8s !important;
+        @include assign-position(0, 0, 0, 0);
+    }
+
+    &--down, &--up, &--left, &--right{
+        //important so lazy loading alone doesn't reveal the image before animation
+        opacity: 0 !important;
+    }
+
+    &--down{
+        top: -150px;
+    }
+
+    &--up{
+        top: 150px;
+    }
+
+    &--left{
+        left: 150px;
+    }
+
+    &--right{
+        left: -150px;
+    }
+}
+
+@keyframes step-in-down{
+    0%{
+        transform: translateY(-100%);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}

@@ -1,5 +1,4 @@
+import { App } from './app/app.class';
 import '../scss/main.scss';
-import { logTheForbiddenWords } from './components/components';
 
-console.log('works definitely');
-logTheForbiddenWords();
+new App();

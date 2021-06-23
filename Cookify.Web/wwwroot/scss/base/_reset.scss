@@ -1,0 +1,25 @@
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  &.no-scroll{
+    overflow: hidden;
+  }
+}
+
+#wpadminbar{
+  display: none;
+}
+
+body{
+  overflow-x: hidden;
+  position: relative;
+
+  //iphone lul
+  @media (hover: none) {
+    cursor: pointer;
+  }
+}
