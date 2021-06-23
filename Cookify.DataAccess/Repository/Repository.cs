@@ -24,7 +24,7 @@ namespace Cookify.DataAccess.Repository
 			dbSet.Add(entity);
 		}
 
-		public T Get(string id)
+		public T Get(int id)
 		{
 			return dbSet.Find(id);
 		}
