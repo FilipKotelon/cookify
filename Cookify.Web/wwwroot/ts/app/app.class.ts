@@ -15,5 +15,7 @@ export class App{
       openersQuerySelector: '.open-search-popup',
       closersQuerySelector: '.close-search-popup'
     })
+
+    // To samo dla pozostałych popupów
   }
 }
