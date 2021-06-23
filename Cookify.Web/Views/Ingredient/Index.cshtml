@@ -7,6 +7,9 @@
     <div class="col-6">
         <h2 class="text-primary">List of ingredients:</h2>
     </div>
+    <div class="col-6 text-right">
+        <a class="btn btn-primary text-light" asp-action="Upsert">Create New Ingredient</a>
+    </div>
 </div>
 
 <br />
@@ -31,9 +34,11 @@
                 @foreach (var ingredient in Model)
                 {
                 <tr>
-                    <td width="20%">@ingredient.Id</td>
+                    <td width="10%">@ingredient.Id</td>
                     <td width="30%">@ingredient.Name</td>
-                    <td width="50%">@ingredient.Description</td>
+                    <td width="40%">@ingredient.Description</td>
+                    <td width="10%"><a asp-action="Upsert" asp-route-id="@ingredient.Id">Edit</a></td>
+                    <td width="10%"><a asp-action="Delete" asp-route-id="@ingredient.Id">Delete</a></td>
                 </tr>
                 }
             </tbody>
