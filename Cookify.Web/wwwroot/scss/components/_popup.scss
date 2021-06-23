@@ -15,6 +15,7 @@
   &__closer{
     @include abs($r: 32px, $t: 32px);
     @include square(84px);
+    cursor: pointer;
   }
 
   &__content{

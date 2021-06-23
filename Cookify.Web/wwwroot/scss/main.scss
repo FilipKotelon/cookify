@@ -1,17 +1,18 @@
-﻿@import "./base/reset";
-@import "./base/typography";
-
-@import "./utility/variables";
+﻿@import "./utility/variables";
 @import "./utility/mixins/mixins-basic";
 @import "./utility/mixins/mixins-flex";
 @import "./utility/mixins/mixins-other";
 @import "./utility/mixins/mixins-spacing";
+
+@import "./base/reset";
+@import "./base/typography";
 
 @import "./vendors/bootstrap";
 
 @import "./components/popup";
 @import "./components/recipe-brief";
 
+@import "./layout/container";
 @import "./layout/nav";
 
 @import "./pages/home";

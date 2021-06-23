@@ -1,0 +1,45 @@
+.ck-nav{
+  @include fix(0, 0);
+  @include rect(100%, 60px);
+  @include d-flex($jc: space-between, $ai: center);
+  background: $white;
+
+  &-height{
+    height: 60px;
+  }
+
+  &__logo{
+    @include d-flex($ai: center);
+  }
+
+  &__links{
+    @include d-flex();
+    @include m-not-last(32px, r);
+
+    &__item{
+      @include d-flex($ai: center);
+      cursor: pointer;
+
+      & img{
+        margin-right: 6px;
+        filter: brightness(.6) grayscale(1);
+        @include transition;
+      }
+
+      & span{
+        @include transition;
+        font-weight: bold;
+      }
+
+      &.active, &:hover{
+        & img{
+          filter: brightness(1);
+        }
+
+        & span{
+          color: $orange;
+        }
+      }
+    }
+  }
+}

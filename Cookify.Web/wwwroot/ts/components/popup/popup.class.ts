@@ -13,6 +13,29 @@ export class Popup{
     this.popup = document.getElementById(data.popupElementId);
     this.openers = [... document.querySelectorAll(data.openersQuerySelector) as NodeListOf<HTMLElement> ];
     this.closers = [... document.querySelectorAll(data.closersQuerySelector) as NodeListOf<HTMLElement> ];
+
+    this.init();
+  }
+
+  init(){
+    this.setupOpeners();
+    this.setupClosers();
+  }
+
+  setupOpeners(){
+    this.openers.forEach(opener => { 
+      opener.addEventListener('click', () => {
+        this.open();
+      })
+    })
+  }
+
+  setupClosers(){
+    this.closers.forEach(closer => { 
+      closer.addEventListener('click', () => {
+        this.close();
+      })
+    })
   }
 
   open(){

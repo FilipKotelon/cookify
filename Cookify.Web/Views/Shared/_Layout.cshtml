@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    @await Component.InvokeAsync("Nav");
+    @await Component.InvokeAsync("Nav")
+    @await Component.InvokeAsync("SearchPopup")
 
     @RenderBody()
 
