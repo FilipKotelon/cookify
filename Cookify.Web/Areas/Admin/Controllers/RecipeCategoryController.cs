@@ -2,8 +2,9 @@
 using Cookify.DataAccess.Repository.IRepository;
 using Cookify.Models;
 
-namespace Cookify.Controllers
+namespace Cookify.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class RecipeCategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

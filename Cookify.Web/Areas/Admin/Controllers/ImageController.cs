@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Cookify.DataAccess.Repository.IRepository;
 
-namespace Cookify.Controllers
+namespace Cookify.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class ImageController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

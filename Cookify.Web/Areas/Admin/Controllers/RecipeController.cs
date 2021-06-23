@@ -5,8 +5,9 @@ using Cookify.Models.ViewModels;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Cookify.Controllers
+namespace Cookify.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class RecipeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
