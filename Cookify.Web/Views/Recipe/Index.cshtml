@@ -5,7 +5,10 @@
 <br />
 <div class="row">
     <div class="col-6">
-        <h2 class="text-primary">List of images:</h2>
+        <h2 class="text-primary">List of recipes:</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a class="btn btn-primary text-light" asp-action="Upsert">Create New Recipe</a>
     </div>
 </div>
 
@@ -41,7 +44,9 @@
                     <td width="20%">@recipe.Name</td>
                     <td width="30%">@recipe.Description</td>
                     <td width="10%"><input type="checkbox" checked="@recipe.Accepted" /></td>
-                    <td width="30%">@recipe.RecipeCategory.Title</td>
+                    <td width="10%">@recipe.RecipeCategory.Title</td>
+                    <td width="10%"><a asp-action="Upsert" asp-route-id="@recipe.Id">Edit</a></td>
+                    <td width="10%"><a asp-action="Delete" asp-route-id="@recipe.Id">Delete</a></td>
                 </tr>
                 }
             </tbody>
