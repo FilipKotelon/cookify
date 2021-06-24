@@ -2,8 +2,9 @@
 using Cookify.DataAccess.Repository.IRepository;
 using Cookify.Models;
 
-namespace Cookify.Controllers
+namespace Cookify.Areas.User.Controllers
 {
+    [Area("User")]
     public class IngredientController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
