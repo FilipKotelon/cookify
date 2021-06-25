@@ -1,0 +1,27 @@
+﻿<nav class="ck-nav ck-container">
+    <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="ck-nav__logo">
+        <img src="~/assets/icons/components/logo-admin.svg" alt="Cookify Logo" />
+    </a>
+
+    <div class="ck-nav__links">
+        <a asp-area="User" asp-controller="Home" asp-action="Index" class="ck-nav__links__item">
+            <span>Wróć na stronę</span>
+        </a>
+        <a asp-area="Admin" asp-controller="Recipe" asp-action="Index" class="ck-nav__links__item">
+            <span>Przepisy</span>
+        </a>
+        <a asp-area="Admin" asp-controller="RecipeCategory" asp-action="Index" class="ck-nav__links__item">
+            <span>Kategorie</span>
+        </a>
+        <a href="#" class="ck-nav__links__item">
+            <span>Użytkownicy</span>
+        </a>
+        <a asp-area="Admin" asp-controller="Image" asp-action="Index" class="ck-nav__links__item">
+            <span>Zdjęcia</span>
+        </a>
+        <a asp-area="Admin" asp-controller="Ingredient" asp-action="Index" class="ck-nav__links__item">
+            <span>Składniki</span>
+        </a>
+    </div>
+</nav>
+<div class="ck-nav-height"></div>

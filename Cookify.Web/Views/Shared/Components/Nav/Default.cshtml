@@ -4,11 +4,11 @@
     </a>
 
     <div class="ck-nav__links">
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="ck-nav__links__item active">
+        <a asp-area="User" asp-controller="Home" asp-action="Index" class="ck-nav__links__item active">
             <img src="~/assets/icons/components/home-orange.svg" alt="Strona główna" />
             <span>Strona główna</span>
         </a>
-        <a asp-area="" asp-controller="Recipe" asp-action="Index" class="ck-nav__links__item">
+        <a asp-area="User" asp-controller="Recipe" asp-action="Index" class="ck-nav__links__item">
             <img src="~/assets/icons/components/food-orange.svg" alt="Przepisy" />
             <span>Przepisy</span>
         </a>
@@ -35,38 +35,3 @@
     </div>
 </nav>
 <div class="ck-nav-height"></div>
-
-
-LINKS LINKS LINKS
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Cookify</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <partial name="_LoginPartial" />
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Ingredient" asp-action="Index">Ingredients</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="RecipeCategory" asp-action="Index">Categories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Image" asp-action="Index">Images</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Recipe" asp-action="Index">Recipes</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-LINKS LINKS LINKS

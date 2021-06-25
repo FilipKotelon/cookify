@@ -1,0 +1,41 @@
+.admin-panels{
+  @include flex-row-6(32px);
+
+  &__item{
+    @include d-flex($center: true);
+    height: calc(100vh - 240px);
+    background: $white;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    font-size: 28px;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+
+    &__bg{
+      @include abs(0, 0);
+      opacity: 0;
+      z-index: 0;
+      filter: brightness(.6);
+      @include transition;
+      @include img-cover;
+    }
+
+    & span{
+      position: relative;
+      z-index: 1;
+      color: $grey-700;
+      @include transition;
+    }
+
+    &:hover{
+      & span{
+        color: $white;
+      }
+
+      & .admin-panels__item__bg{
+        opacity: 1;
+      }
+    }
+  }
+}

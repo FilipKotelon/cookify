@@ -20,9 +20,6 @@
             <thead>
                 <tr>
                     <th>
-                        Id
-                    </th>
-                    <th>
                         Title
                     </th>
                 </tr>
@@ -31,10 +28,7 @@
                 @foreach (var recipeCategory in Model)
                 {
                 <tr>
-                    <td width="10%">@recipeCategory.Id</td>
                     <td width="70%">@recipeCategory.Title</td>
-                    <td width="10%"><a asp-action="Upsert" asp-route-id="@recipeCategory.Id">Edit</a></td>
-                    <td width="10%"><a asp-action="Delete" asp-route-id="@recipeCategory.Id">Delete</a></td>
                 </tr>
                 }
             </tbody>

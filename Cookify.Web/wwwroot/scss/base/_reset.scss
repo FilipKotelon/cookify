@@ -19,6 +19,10 @@ body{
   position: relative;
   background-color: $cream;
 
+  &.grey-body{
+    background-color: $grey-100;
+  }
+
   //iphone lul
   @media (hover: none) {
     cursor: pointer;

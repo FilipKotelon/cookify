@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="admin-panels ck-container">
+    <a asp-area="Admin" asp-controller="Recipe" asp-action="Index" class="admin-panels__item">
+        <img class="admin-panels__item__bg" src="~/assets/placeholders/admin-recipes.jpg" />
+        <span>Przepisy</span>
+    </a>
+    <a asp-area="Admin" asp-controller="RecipeCategory" asp-action="Index" class="admin-panels__item">
+        <img class="admin-panels__item__bg" src="~/assets/placeholders/admin-categories.jpg" />
+        <span>Kategorie</span>
+    </a>
+    <a href="#" class="admin-panels__item">
+        <img class="admin-panels__item__bg" src="~/assets/placeholders/admin-users.jpg" />
+        <span>Użytkownicy</span>
+    </a>
+    <a asp-area="Admin" asp-controller="Image" asp-action="Index" class="admin-panels__item">
+        <img class="admin-panels__item__bg" src="~/assets/placeholders/admin-photos.jpg" />
+        <span>Zdjęcia</span>
+    </a>
+    <a asp-area="Admin" asp-controller="Ingredient" asp-action="Index" class="admin-panels__item">
+        <img class="admin-panels__item__bg" src="~/assets/placeholders/admin-ingredients.jpg" />
+        <span>Składniki</span>
+    </a>
+    <a href="#" class="admin-panels__item">
+        <img class="admin-panels__item__bg" src="~/assets/placeholders/admin-comments.jpg" />
+        <span>Komentarze</span>
+    </a>
+</div>
