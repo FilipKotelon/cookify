@@ -1,0 +1,49 @@
+﻿@model Cookify.Models.Recipe
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-primary">Recipe "@Model.Name" details:</h2>
+    </div>
+</div>
+
+<br />
+<div class="p-4 border rounded">
+    @if (Model != null)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width="30%">@Model.Name</td>
+                    <td width="50%">@Model.Description</td>
+                    <td width="20%">@Model.RecipeCategory.Title</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a asp-action="Index">Go back to list of recipes</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Something went wrong! :(</p>
+    }
+</div>

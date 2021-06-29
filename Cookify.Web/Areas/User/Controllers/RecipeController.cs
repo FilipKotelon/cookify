@@ -23,6 +23,13 @@ namespace Cookify.Areas.User.Controllers
             return View(recipes);
         }
 
+        public IActionResult Details(int id)
+        {
+            var recipe = _unitOfWork.Recipe.GetFirstOrDefault(r => r.Id == id, includeProperties: "RecipeCategory");
+            return View(recipe);
+        }
+
+
         public IActionResult Upsert(int? id)
         {
             RecipeViewModel recipeViewModel = new RecipeViewModel()

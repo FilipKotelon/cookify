@@ -25,6 +25,9 @@
                     <th>
                         Category
                     </th>
+                    <th>
+                        Details
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +36,9 @@
                 <tr>
                     <td width="20%">@recipe.Name</td>
                     <td width="10%">@recipe.RecipeCategory.Title</td>
+                    <td width="10%">
+                        <a asp-action="Details" asp-route-id="@recipe.Id">Read more</a>
+                    </td>
                 </tr>
                 }
             </tbody>
@@ -40,6 +46,6 @@
     }
     else
     {
-        <p>There are no images in the database!</p>
+        <p>There are no recipes in the database!</p>
     }
 </div>
