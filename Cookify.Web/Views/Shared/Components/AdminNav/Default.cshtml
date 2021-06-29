@@ -7,21 +7,39 @@
         <a asp-area="User" asp-controller="Home" asp-action="Index" class="ck-nav__links__item">
             <span>Wróć na stronę</span>
         </a>
-        <a asp-area="Admin" asp-controller="Recipe" asp-action="Index" class="ck-nav__links__item">
-            <span>Przepisy</span>
-        </a>
-        <a asp-area="Admin" asp-controller="RecipeCategory" asp-action="Index" class="ck-nav__links__item">
-            <span>Kategorie</span>
-        </a>
+        <div class="ck-nav__links__item ck-dropdown-menu-con">
+            <a asp-area="Admin" asp-controller="Recipe" asp-action="Index">Przepisy</a>
+            <div class="ck-dropdown-menu">
+                <a asp-area="Admin" asp-controller="Recipe" asp-action="Upsert" class="ck-dropdown-menu__link">
+                    Dodaj przepis
+                </a>
+                <a href="#" class="ck-dropdown-menu__link">
+                    Przepisy do dodania
+                </a>
+            </div>
+        </div>
+        <div class="ck-nav__links__item ck-dropdown-menu-con">
+            <a asp-area="Admin" asp-controller="RecipeCategory" asp-action="Index">Kategorie</a>
+            <div class="ck-dropdown-menu">
+                <a asp-area="Admin" asp-controller="RecipeCategory" asp-action="Upsert" class="ck-dropdown-menu__link">
+                    Dodaj kategorię
+                </a>
+            </div>
+        </div>
         <a href="#" class="ck-nav__links__item">
             <span>Użytkownicy</span>
         </a>
         <a asp-area="Admin" asp-controller="Image" asp-action="Index" class="ck-nav__links__item">
             <span>Zdjęcia</span>
         </a>
-        <a asp-area="Admin" asp-controller="Ingredient" asp-action="Index" class="ck-nav__links__item">
-            <span>Składniki</span>
-        </a>
+        <div class="ck-nav__links__item ck-dropdown-menu-con">
+            <a asp-area="Admin" asp-controller="Ingredient" asp-action="Index">Składniki</a>
+            <div class="ck-dropdown-menu to-right">
+                <a asp-area="Admin" asp-controller="Ingredient" asp-action="Upsert" class="ck-dropdown-menu__link">
+                    Dodaj składnik
+                </a>
+            </div>
+        </div>
     </div>
 </nav>
 <div class="ck-nav-height"></div>

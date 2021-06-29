@@ -1,0 +1,38 @@
+.ck-dropdown-menu{
+  &-con{
+    position: relative;
+
+    &:hover{
+      & .ck-dropdown-menu{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  @include abs($l: -22px, $t: calc(100% + 16px));
+  @include d-flex($dir: column);
+  @include m-not-last(8px, b);
+  background-color: $white;
+  border-radius: 0 0 5px 5px;
+  padding: 14px 22px;
+  opacity: 0;
+  visibility: hidden;
+  @include transition;
+  z-index: 100;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.02);
+
+  &.to-right{
+    right: 0;
+    left: initial;
+  }
+
+  &__link{
+    white-space: nowrap;
+    @include transition;
+
+    &:hover{
+      color: $orange;
+    }
+  }
+}
