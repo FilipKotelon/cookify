@@ -13,7 +13,9 @@
 <body class="grey-body">
     @await Component.InvokeAsync("AdminNav")
 
-    @RenderBody()
+    <main class="ck-container">
+        @RenderBody()
+    </main>
 
     @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@

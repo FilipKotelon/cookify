@@ -1,0 +1,8 @@
+.admin-header{
+  @include d-flex();
+  margin-bottom: 30px;
+
+  &__title{
+    margin-right: 20px;
+  }
+}

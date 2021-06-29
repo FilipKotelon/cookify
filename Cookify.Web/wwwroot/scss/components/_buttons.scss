@@ -1,0 +1,12 @@
+.admin-btn{
+  @include d-flex($center: true);
+  background-color: $black;
+  padding: 6px 14px;
+  color: $white;
+  font-size: 14px;
+  @include transition;
+
+  &:hover{
+    background-color: $green;
+  }
+}
