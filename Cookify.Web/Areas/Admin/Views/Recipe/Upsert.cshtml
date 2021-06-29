@@ -5,53 +5,39 @@
 }
 
 <form method="post">
-    <div class="row p-3 border">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        @if (Model.Recipe.Id != 0)
-        {
-            title = "Edit recipe";
-        }
-        <div class="col-12 border-bottom">
-            <h2 class="text-primary">@title</h2>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @if (Model.Recipe.Id != 0)
+    {
+        title = "Edit recipe";
+    }
+    <div class="admin-header">
+        <h1 class="admin-header__title">@title</h1>
+    </div>
+    <div class="admin-form">
+        <div class="admin-form__group">
+            <label asp-for="Recipe.Name"></label>
+            <input asp-for="Recipe.Name" />
+            <span asp-validation-for="Recipe.Name" class="text-danger"></span>
         </div>
-        <div class="col-8 pt-4">
-            <div class="form-group row">
-                <div class="col-4">
-                    <label asp-for="Recipe.Name"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Recipe.Name" class="form-control" />
-                    <span asp-validation-for="Recipe.Name" class="text-danger"></span>
-                </div>
-                <div class="col-4">
-                    <label asp-for="Recipe.Description"></label>
-                </div>
-                <div class="col-8">
-                    <input asp-for="Recipe.Description" class="form-control" />
-                    <span asp-validation-for="Recipe.Description" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-4">
-                    Category
-                </div>
-                <div class="col-8">
-                    @Html.DropDownListFor(m => m.Recipe.RecipeCategoryId, Model.RecipeCategoryList, "> Select recipe category <", new { @class = "form-control" })
-                    <span asp-validation-for="Recipe.RecipeCategoryId" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-8 offset-4">
-                    @if (Model.Recipe.Id != 0)
-                    {
-                        <partial name="_EditAndGoBackButton" model="Model.Recipe.Id" />
-                    }
-                    else
-                    {
-                        <partial name="_CreateAndGoBackButton" />
-                    }
-                </div>
-            </div>
+        <div class="admin-form__group">
+            <label asp-for="Recipe.Description"></label>
+            <input asp-for="Recipe.Description" />
+            <span asp-validation-for="Recipe.Description" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label>Category</label>
+            @Html.DropDownListFor(m => m.Recipe.RecipeCategoryId, Model.RecipeCategoryList, "> Select recipe category <", new { @class = "form-control" })
+            <span asp-validation-for="Recipe.RecipeCategoryId" class="text-danger"></span>
+        </div>
+        <div class="admin-form__actions">
+            @if (Model.Recipe.Id != 0)
+            {
+                <partial name="_EditAndGoBackButton" model="Model.Recipe.Id" />
+            }
+            else
+            {
+                <partial name="_CreateAndGoBackButton" />
+            }
         </div>
     </div>
 </form>

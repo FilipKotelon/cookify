@@ -1,12 +1,20 @@
 .admin-btn{
   @include d-flex($center: true);
   background-color: $black;
-  padding: 6px 14px;
+  height: 36px;
+  padding: 0 14px;
   color: $white;
   font-size: 14px;
+  border: none;
   @include transition;
+  cursor: pointer;
 
   &:hover{
     background-color: $green;
+  }
+
+  &-group{
+    @include d-flex($ai: center);
+    @include m-not-last(24px, r);
   }
 }

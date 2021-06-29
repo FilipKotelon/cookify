@@ -1,0 +1,33 @@
+.admin-form{
+  @include d-flex($dir: column);
+  background-color: $white;
+  padding: 24px 32px;
+  border-radius: 5px;
+  max-width: 800px;
+  width: 100%;
+
+  &__group{
+    @include d-flex($dir: column);
+
+    &:not(:last-child){
+      margin-bottom: 24px;
+    }
+
+    & label{
+      margin-bottom: 8px;
+    }
+
+    & input{
+      @include rect(100%, 40px);
+      padding: 0 15px;
+      border: 1px solid $grey-300;
+      background-color: $white;
+    }
+
+    & select{
+      height: 40px;
+      padding: 0 15px;
+      border: 1px solid $grey-300;
+    }
+  }
+}
