@@ -2,4 +2,25 @@
     ViewData["Title"] = "Home Page";
 }
 
-Home
+@*<div class="user-panels ck-container">
+    <span> Cześć! Na co masz dzisiaj ochotę?</span>
+</div>*@
+
+<div class="user-panels ck-container">
+    <a asp-area="User" asp-controller="Recipe" asp-action="Index" class="user-panels__item">
+        <img class="user-panels__item__bg" src="~/assets/placeholders/user-recipes.jpg" />
+        <span>Wszystkie przepisy</span>
+    </a>
+    <a asp-area="User" asp-controller="RecipeCategory" asp-action="Index" class="user-panels__item">
+        <img class="user-panels__item__bg" src="~/assets/placeholders/user-categories.jpg" />
+        <span>Wszystkie kategorie</span>
+    </a>
+    <a asp-area="User" asp-controller="Ingredient" asp-action="Index" class="user-panels__item">
+        <img class="user-panels__item__bg" src="~/assets/placeholders/user-ingredients-search.jpg" />
+        <span>Najpopularniejsze przepisy</span>
+    </a>
+    <a asp-area="User" asp-controller="Ingredient" asp-action="Index" class="user-panels__item">
+        <img class="user-panels__item__bg" src="~/assets/placeholders/user-ingredients-search.jpg" />
+        <span>Szukaj wg. składników</span>
+    </a>
+</div>
