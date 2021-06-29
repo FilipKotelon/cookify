@@ -7,6 +7,8 @@ namespace Cookify.Models
 	{
 		[Key]
 		public int Id { get; set; }
+		
+		public string Content { get; set; }
 
 		[Required]
 		public string ApplicationUserId { get; set; }
@@ -14,5 +16,10 @@ namespace Cookify.Models
 		[ForeignKey("ApplicationUserId")]
 		public ApplicationUser ApplicationUser { get; set; }
 
+		[Required]
+		public int RecipeId { get; set; }
+
+		[ForeignKey("RecipeId")]
+		public Recipe Recipe { get; set; }
 	}
 }
