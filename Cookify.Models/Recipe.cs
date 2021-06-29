@@ -11,6 +11,10 @@ namespace Cookify.Models
 		public string Description { get; set; }
 		public bool Accepted { get; set; }
 
+		public string PreparationTime { get; set; }
+
+		public string DifficultyLevel { get; set; }
+
 		[Required]
 		public int RecipeCategoryId { get; set; }
 
