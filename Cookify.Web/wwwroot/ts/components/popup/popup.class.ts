@@ -8,6 +8,7 @@ export class Popup{
   popup: HTMLElement;
   openers: HTMLElement[];
   closers: HTMLElement[];
+  beforeOpen: Function;
 
   constructor(data: IPopupData){
     this.popup = document.getElementById(data.popupElementId);
@@ -39,6 +40,7 @@ export class Popup{
   }
 
   open(){
+    this.beforeOpen();
     this.popup.classList.add('open');
   }
 

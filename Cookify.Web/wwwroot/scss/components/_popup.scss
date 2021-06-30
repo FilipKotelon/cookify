@@ -2,6 +2,7 @@
   @include fix(0, 0);
   @include square(100%);
   padding: 32px;
+  z-index: 1000;
   background: rgba(235, 150, 5, 0.95);
   opacity: 0;
   pointer-events: none;
@@ -20,7 +21,27 @@
 
   &__content{
     &__title{
-    
+      text-align: center;
+      color: $white;
+      margin-bottom: 48px;
+    }
+
+    & .search-bar{
+      margin-bottom: 60px;
+    }
+  }
+
+  &.search-popup{
+    @include d-flex($center: true);
+
+    & .popup{
+      &__content{
+        @include d-flex($dir: column, $center: true);
+
+        & .title-card{
+          @include rect(320px, 170px);
+        }
+      }
     }
   }
 }

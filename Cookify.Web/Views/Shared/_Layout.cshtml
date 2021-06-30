@@ -13,6 +13,8 @@
 <body>
     @await Component.InvokeAsync("Nav")
     @await Component.InvokeAsync("SearchPopup")
+    @await Component.InvokeAsync("CategoryPopup")
+    @await Component.InvokeAsync("IngredientPopup")
 
     @RenderBody()
 

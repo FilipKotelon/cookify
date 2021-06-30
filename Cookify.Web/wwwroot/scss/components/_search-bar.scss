@@ -1,0 +1,24 @@
+.search-bar{
+  @include d-flex($ai: center, $jc: space-between);
+  padding: 0 26px;
+  height: 60px;
+  background-color: $white;
+  border-radius: 30px;
+  width: 540px;
+  max-width: 100%;
+  
+  & input{
+    width: calc(100% - 44px);
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    
+    &::placeholder{
+      color: $grey-500;
+    }
+  }
+
+  & img{
+    width: 32px;
+  }
+}

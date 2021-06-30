@@ -1,0 +1,27 @@
+.title-card{
+  @include d-flex($center: true);
+  padding: 24px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+
+  &::after{
+    @include default-after;
+    @include assign-position(0, 0, 0, 0);
+    z-index: -1;
+    background-color: $white;
+    border-radius: 5px;
+    @include transition;
+  }
+
+  &:hover{
+    &::after{
+      transform: scale(.95);
+    }
+  }
+
+  &-group{
+    @include d-flex;
+    @include m-not-last(14px, r);
+  }
+}
