@@ -4,6 +4,8 @@ using Cookify.Models;
 using Cookify.Models.ViewModels;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Security.Claims;
+using System.Web;
 
 namespace Cookify.Areas.User.Controllers
 {
@@ -25,10 +27,29 @@ namespace Cookify.Areas.User.Controllers
 
         public IActionResult Details(int id)
         {
-            var recipe = _unitOfWork.Recipe.GetFirstOrDefault(r => r.Id == id, includeProperties: "RecipeCategory");
-            return View(recipe);
+            RecipeViewModel recipeViewModel = new RecipeViewModel()
+            {
+                Recipe = _unitOfWork.Recipe.GetFirstOrDefault(r => r.Id == id, includeProperties: "RecipeCategory"),
+                Commnets = _unitOfWork.Comment.GetAll(comment => comment.RecipeId == id)
+            };
+
+            return View(recipeViewModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddComment(RecipeViewModel recipeViewModel)
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var loggedUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            
+            recipeViewModel.Comment.ApplicationUserId = loggedUserId;
+
+            _unitOfWork.Comment.Add(recipeViewModel.Comment);
+            _unitOfWork.Save();
+
+            return RedirectToAction("Details", new { id = recipeViewModel.Comment.RecipeId });
+        }
 
         public IActionResult Upsert(int? id)
         {

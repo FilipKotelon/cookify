@@ -1,4 +1,5 @@
-﻿@model Cookify.Models.Recipe
+﻿@model Cookify.Models.ViewModels.RecipeViewModel
+
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -6,7 +7,7 @@
 <br />
 <div class="row">
     <div class="col-6">
-        <h2 class="text-primary">Recipe "@Model.Name" details:</h2>
+        <h2 class="text-primary">Recipe "@Model.Recipe.Name" details:</h2>
     </div>
 </div>
 
@@ -30,17 +31,43 @@
             </thead>
             <tbody>
                 <tr>
-                    <td width="30%">@Model.Name</td>
-                    <td width="50%">@Model.Description</td>
-                    <td width="20%">@Model.RecipeCategory.Title</td>
+                    <td width="30%">@Model.Recipe.Name</td>
+                    <td width="50%">@Model.Recipe.Description</td>
+                    <td width="20%">@Model.Recipe.RecipeCategory.Title</td>
                 </tr>
                 <tr>
-                    <td>
+                    <td colspan="3">
+                        <form method="post">
+                            <textarea asp-for="Comment.Content" placeholder="Type content of your comment here..." style="width: 100%;"></textarea><br />
+
+                            <!-- Ten input ze stylem display: none na razie musi zostać! -->
+                            <input asp-for="Comment.RecipeId" type="text" value="@Model.Recipe.Id" style="display: none;" /><br />
+                            <!-- ------------------------------------------------------ -->
+
+                            <button asp-controller="Recipe" asp-action="AddComment">Add comment</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
                         <a asp-action="Index">Go back to list of recipes</a>
                     </td>
                 </tr>
             </tbody>
         </table>
+        @if (Model.Commnets.Count() > 0)
+        {
+            <ul>
+                @foreach (var comment in Model.Commnets)
+                {
+                    <li>@comment.Content</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>There are no comments for this recipe.</p>
+        }
     }
     else
     {
