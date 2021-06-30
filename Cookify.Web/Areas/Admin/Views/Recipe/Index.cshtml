@@ -38,7 +38,7 @@
                     <td width="10%">@recipe.Id</td>
                     <td width="20%">@recipe.Name</td>
                     <td width="30%">@recipe.Description</td>
-                    <td width="10%"><input type="checkbox" checked="@recipe.Accepted" /></td>
+                    <td width="10%"><input type="checkbox" disabled checked="@recipe.Accepted" /></td>
                     <td width="10%">@recipe.RecipeCategory.Title</td>
                     <td width="10%"><a asp-action="Upsert" asp-route-id="@recipe.Id" class="admin-btn">Edit</a></td>
                     <td width="10%"><a asp-action="Delete" asp-route-id="@recipe.Id" class="admin-btn">Delete</a></td>
