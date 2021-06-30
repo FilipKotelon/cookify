@@ -9,6 +9,7 @@
     @if (Model.Recipe.Id != 0)
     {
         title = "Edit recipe";
+        <input type="hidden" asp-for="Recipe.Id" />
     }
     <div class="admin-header">
         <h1 class="admin-header__title">@title</h1>
@@ -23,6 +24,10 @@
             <label asp-for="Recipe.Description"></label>
             <input asp-for="Recipe.Description" />
             <span asp-validation-for="Recipe.Description" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="Recipe.Accepted"></label>
+            <input type="checkbox" asp-for="Recipe.Accepted" checked="@Model.Recipe.Accepted" />
         </div>
         <div class="admin-form__group">
             <label>Category</label>

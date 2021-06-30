@@ -21,7 +21,7 @@ namespace Cookify.Areas.User.Controllers
 
         public IActionResult Index()
         {
-            var recipes = _unitOfWork.Recipe.GetAll(includeProperties: "RecipeCategory");
+            var recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.Accepted == true, includeProperties: "RecipeCategory");
             return View(recipes);
         }
 
