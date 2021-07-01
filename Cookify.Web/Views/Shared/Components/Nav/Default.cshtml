@@ -1,4 +1,10 @@
-﻿<nav class="ck-nav ck-container">
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+<nav class="ck-nav ck-container">
     <a asp-area="" asp-controller="Home" asp-action="Index" class="ck-nav__logo">
         <img src="~/assets/icons/components/logo.svg" alt="Cookify Logo" />
     </a>
@@ -28,10 +34,38 @@
             <img src="~/assets/icons/components/heart-orange.svg" alt="Ulubione" />
             <span>Ulubione</span>
         </a>
-        <a href="#" class="ck-nav__links__item">
-            <img src="~/assets/icons/components/user-orange.svg" alt="Profil" />
-            <span>Profil</span>
-        </a>
-    </div>
+        <div class="ck-nav__links__item ck-dropdown-menu-con">
+            <a href="#" class="ck-nav__links__item">
+                <img src="~/assets/icons/components/user-orange.svg" alt="Profil" />
+                <span>Profil</span>
+            </a>
+            <div class="ck-dropdown-menu to-right">
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a href="#" class="ck-dropdown-menu__link">
+                        Wyślij swój przepis
+                    </a>
+                    <a href="#" class="ck-dropdown-menu__link">
+                        Ulubione przepisy
+                    </a>
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" class="ck-dropdown-menu__link">
+                        Ustawienia
+                    </a>
+                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                    </form>
+
+                }
+                else
+                {
+                    <a asp-area="Identity" asp-page="/Account/Login" class="ck-dropdown-menu__link">
+                        Zaloguj się
+                    </a>
+                    <a asp-area="Identity" asp-page="/Account/Register" class="ck-dropdown-menu__link">
+                        Zarejestruj się
+                    </a>
+                }
+            </div>
+        </div>
 </nav>
 <div class="ck-nav-height"></div>
