@@ -1,17 +1,14 @@
-﻿.user-panels {
-    @include flex-row-4(14px);
+﻿.category-panels {
+    @include flex-row-6(6px);
 
     &__item {
         @include d-flex($center: true);
-        height: 255px;
-        width: 462px;
-        font-family: 'Open Sans';
-        font-weight: bold;
-        font-size: 24px;
+        height: 279px;
+        width: 326px;
+        font-family: 'Montserrat';
+        font-weight: normal;
+        font-size: 18px;
         position: relative;
-        border-radius: 5px;
-        overflow: hidden;
-        text-align: center;
 
         & span {
             position: absolute;

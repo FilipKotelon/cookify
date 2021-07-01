@@ -1,26 +1,53 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<div class="home-header">
+    <h1 class="h1">Na co masz dzisiaj ochotę?</h1>
+    <partial name="_SearchBarPartial" />
+</div>
 
-@*<div class="user-panels ck-container">
-    <span> Cześć! Na co masz dzisiaj ochotę?</span>
-</div>*@
 
 <div class="user-panels ck-container">
-    <a asp-area="User" asp-controller="Recipe" asp-action="Index" class="user-panels__item">
-        <img class="user-panels__item__bg" src="~/assets/placeholders/user-recipes.jpg" />
+    <a href="#" class="user-panels__item">
+        <img src="~/assets/placeholders/user-recipes.jpg" />
         <span>Wszystkie przepisy</span>
     </a>
-    <a asp-area="User" asp-controller="RecipeCategory" asp-action="Index" class="user-panels__item">
-        <img class="user-panels__item__bg" src="~/assets/placeholders/user-categories.jpg" />
+    <a href="#" class="user-panels__item">
+        <img src="~/assets/placeholders/user-categories.jpg" />
         <span>Wszystkie kategorie</span>
     </a>
-    <a asp-area="User" asp-controller="Ingredient" asp-action="Index" class="user-panels__item">
-        <img class="user-panels__item__bg" src="~/assets/placeholders/user-ingredients-search.jpg" />
+    <a href="#" class="user-panels__item">
+        <img src="~/assets/placeholders/user-popular.jpg" />
         <span>Najpopularniejsze przepisy</span>
     </a>
-    <a asp-area="User" asp-controller="Ingredient" asp-action="Index" class="user-panels__item">
-        <img class="user-panels__item__bg" src="~/assets/placeholders/user-ingredients-search.jpg" />
+    <a href="#" class="user-panels__item">
+        <img class ="user-panels__item"src="~/assets/placeholders/user-ingredients-search.jpg" />
         <span>Szukaj wg. składników</span>
+    </a>
+</div>
+
+<h2 class="h2">Popularne kategorie</h2>
+
+<div class="category-panels ck-container">
+    <a href="#" class="category-panels__item">
+        <img src="~/assets/placeholders/category-breakfasts.jpg" />
+        <span>Śniadania</span>
+    </a>
+    <a href="#" class="category-panels__item">
+        <img src="~/assets/placeholders/category-soups.jpg" />
+        <span>Zupy</span>
+    </a>
+    <a href="#" class="category-panels__item">
+        <img src="~/assets/placeholders/category-breakfasts.jpg" />
+        <span>Śniadania</span>
+    </a>
+    <a href="#" class="category-panels__item">
+        <img src="~/assets/placeholders/category-soups.jpg" />
+        <span>Zupy</span>
+    </a>
+    <a href="#" class="category-panels__item">
+        <img src="~/assets/placeholders/category-breakfasts.jpg" />
+        <span>Śniadania</span>
+    </a>
+    <a href="#" class="category-panels__item">
+        <img src="~/assets/placeholders/category-soups.jpg" />
+        <span>Zupy</span>
     </a>
 </div>
