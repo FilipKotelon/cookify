@@ -26,13 +26,23 @@
             <span asp-validation-for="Recipe.Description" class="text-danger"></span>
         </div>
         <div class="admin-form__group">
-            <label asp-for="Recipe.Accepted"></label>
-            <input type="checkbox" asp-for="Recipe.Accepted" checked="@Model.Recipe.Accepted" />
-        </div>
-        <div class="admin-form__group">
             <label>Category</label>
             @Html.DropDownListFor(m => m.Recipe.RecipeCategoryId, Model.RecipeCategoryList, "> Select recipe category <", new { @class = "form-control" })
             <span asp-validation-for="Recipe.RecipeCategoryId" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="Recipe.DifficultyLevel">Difficulty Level</label>
+            <input asp-for="Recipe.DifficultyLevel" />
+            <span asp-validation-for="Recipe.DifficultyLevel" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="Recipe.PreparationTime">Preparation Time</label>
+            <input asp-for="Recipe.PreparationTime" />
+            <span asp-validation-for="Recipe.PreparationTime" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="Recipe.Accepted"></label>
+            <input type="checkbox" asp-for="Recipe.Accepted" checked="@Model.Recipe.Accepted" />
         </div>
         <div class="admin-form__actions">
             @if (Model.Recipe.Id != 0)

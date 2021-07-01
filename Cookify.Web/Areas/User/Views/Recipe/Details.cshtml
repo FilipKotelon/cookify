@@ -27,16 +27,24 @@
                     <th>
                         Category
                     </th>
+                    <th>
+                        Difficulty Level
+                    </th>
+                    <th>
+                        Preparation Time
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td width="30%">@Model.Recipe.Name</td>
+                    <td width="20%">@Model.Recipe.Name</td>
                     <td width="50%">@Model.Recipe.Description</td>
-                    <td width="20%">@Model.Recipe.RecipeCategory.Title</td>
+                    <td width="10%">@Model.Recipe.RecipeCategory.Title</td>
+                    <td width="10%">@Model.Recipe.DifficultyLevel</td>
+                    <td width="10%">@Model.Recipe.PreparationTime</td>
                 </tr>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="5">
                         <form method="post">
                             <textarea asp-for="Comment.Content" placeholder="Type content of your comment here..." style="width: 100%;"></textarea><br />
 
@@ -49,7 +57,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3">
+                    <td colspan="5">
                         <a asp-action="Index">Go back to list of recipes</a>
                     </td>
                 </tr>
