@@ -1,21 +1,12 @@
-﻿.user-panels {
+﻿.product-grid {
     @include flex-row-4(14px);
 
     &__item {
         @include d-flex($center: true);
-        height: 255px;
-        font-family: 'Open Sans';
-        font-weight: bold;
-        font-size: 24px;
+        height: 280px;
         position: relative;
         border-radius: 5px;
         overflow: hidden;
-        text-align: center;
-
-        & span {
-            position: absolute;
-            color: $white;
-        }
 
         &:hover {
             & img {

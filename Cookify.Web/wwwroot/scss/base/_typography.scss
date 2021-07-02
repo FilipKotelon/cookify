@@ -34,6 +34,15 @@ a{
   line-height: 59px;
 }
 
+.h2 {
+    /*@include after-under($top: 10px );*/
+    font-weight: 700;
+    font-style: normal;
+    font-size: 32px;
+    color: $orange;
+    position: relative;
+}
+
 .mobile-h2{
   font-weight: bold;
   font-size: 18px;

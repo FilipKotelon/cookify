@@ -162,7 +162,6 @@
     left: 0;
     @include rect($w, $h);
     background-color: $color;
-    opacity: 0;
     @include transition;
 }
 
