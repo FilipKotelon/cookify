@@ -17,9 +17,19 @@ namespace Cookify.Areas.Admin.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string toAccept)
         {
             var recipes = _unitOfWork.Recipe.GetAll(includeProperties: "RecipeCategory");
+
+            if (string.IsNullOrEmpty(toAccept)) {
+                return View(recipes);
+            }
+
+            if (toAccept.ToLower().Equals("true"))
+			{
+                recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.Accepted == false, includeProperties: "RecipeCategory");
+            }
+
             return View(recipes);
         }
 
