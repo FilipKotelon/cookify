@@ -72,7 +72,7 @@ namespace Cookify.Web.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
             [Required]
             public string Name { get; set; }
-            public IdentityRole Role { get; set; }
+            public string Role { get; set; }
             public IEnumerable<SelectListItem> RoleList { get; set; }
         }
 
@@ -101,7 +101,8 @@ namespace Cookify.Web.Areas.Identity.Pages.Account
                 {
                     Name = Input.Name,
                     UserName = Input.Name,
-                    Email = Input.Email 
+                    Email = Input.Email,
+                    Role = Input.Role
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
@@ -117,8 +118,7 @@ namespace Cookify.Web.Areas.Identity.Pages.Account
                     {
                         await _roleManager.CreateAsync(new IdentityRole(StaticDetails.Role_User));
                     }
-                    // for testing purposes every user is Assigned admin role by user 
-                    ///await _userManager.AddToRoleAsync(user, StaticDetails.Role_Admin); 
+
                     if(user.Role == null)
                     {
                         await _userManager.AddToRoleAsync(user, StaticDetails.Role_User);
