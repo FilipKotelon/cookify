@@ -39,32 +39,27 @@
 
 <h2 class="h2">Popularne przepisy</h2>
 <div class="product-grid ck-container">
+    @for (int i = 0; i < 4; i++) {  
     <a href="#" class="product-grid__item">
-        <img src="~/assets/placeholders/chicken.jpg" />
+        <img src="~/assets/placeholders/chicken.jpg"/>
+        <div class="favorite-heart">
+            <img class ="heart-empty" src="~/assets/icons/components/heart-orange.svg"/>
+            <img class ="heart-filled" src="~/assets/icons/components/heart-filled.svg"/>
+        </div>
     </a>
-    <a href="#" class="product-grid__item">
-        <img src="~/assets/placeholders/chicken.jpg" />
-    </a>
-    <a href="#" class="product-grid__item">
-        <img src="~/assets/placeholders/chicken.jpg" />
-    </a>
-    <a href="#" class="product-grid__item">
-        <img src="~/assets/placeholders/chicken.jpg" />
-    </a>
+    }
 </div>
 
 <h2 class="h2">Najnowsze przepisy</h2>
 <div class="product-grid ck-container">
+    @for (int i = 0; i < 4; i++)
+    {
     <a href="#" class="product-grid__item">
         <img src="~/assets/placeholders/chicken.jpg" />
+        <div class="favorite-heart">
+            <img class="heart-empty" src="~/assets/icons/components/heart-orange.svg" />
+            <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" />
+        </div>
     </a>
-    <a href="#" class="product-grid__item">
-        <img src="~/assets/placeholders/chicken.jpg" />
-    </a>
-    <a href="#" class="product-grid__item">
-        <img src="~/assets/placeholders/chicken.jpg" />
-    </a>
-    <a href="#" class="product-grid__item">
-        <img src="~/assets/placeholders/chicken.jpg" />
-    </a>
+    }
 </div>

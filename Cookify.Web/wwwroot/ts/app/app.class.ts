@@ -1,5 +1,6 @@
 import { PopupController } from './../components/popup-controller/popup-controller.class';
 import { Popup } from './../components/popup/popup.class';
+import { FavoriteHeart } from './../components/favorite-heart/favorite-heart.class';
 
 export class App{
   constructor(){
@@ -8,7 +9,12 @@ export class App{
 
   init(){
     this.setupPopups();
-  }
+    }
+
+    setupFavorites() {
+        const hearts = document.querySelectorAll('.favorite-heart');
+        hearts.forEach(heart => new FavoriteHeart(heart as HTMLElement, false));
+    }
 
   setupPopups(){
     const popupArr = [];

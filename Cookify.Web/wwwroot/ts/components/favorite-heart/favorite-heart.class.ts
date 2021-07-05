@@ -2,8 +2,10 @@ export class FavoriteHeart{
   el: HTMLElement;
   filled: boolean;
 
-  constructor(checked = false){
-    this.filled = checked;
+  constructor(el: HTMLElement, checked = false) {
+      this.el = el;
+      this.filled = checked;
+      this.init();
   }
 
   init(){
@@ -26,7 +28,8 @@ export class FavoriteHeart{
   }
 
   fillHeart(){
-    this.el.classList.add('filled');
+      this.el.classList.add('filled');
+      this.el.style.opacity = '1';
   }
 
   emptyHeart(){

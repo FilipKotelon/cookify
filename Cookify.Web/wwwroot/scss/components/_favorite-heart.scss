@@ -1,0 +1,29 @@
+.favorite-heart {
+    @include circle(40px);
+    position: absolute;
+    background-color: $white;
+    top: 15px;
+    right: 15px;
+
+    & .heart-filled {
+        opacity: 0;
+        @include transition;
+        position: absolute;
+    }
+
+    & .heart-empty {
+        opacity: 1;
+        @include transition;
+        position: absolute;
+    }
+
+    &.filled {
+        & .heart-filled {
+            opacity: 1;
+        }
+
+        & .heart-empty {
+            opacity: 0;
+        }
+    }
+}
