@@ -26,30 +26,15 @@
 <h2 class="h2">Popularne kategorie</h2>
 
 <div class="category-panels ck-container">
-    <a href="#" class="category-panels__item">
-        <img src="~/assets/placeholders/category-breakfasts.jpg" />
-        <span>Śniadania</span>
-    </a>
-    <a href="#" class="category-panels__item">
-        <img src="~/assets/placeholders/category-soups.jpg" />
-        <span>Zupy</span>
-    </a>
-    <a href="#" class="category-panels__item">
-        <img src="~/assets/placeholders/category-breakfasts.jpg" />
-        <span>Śniadania</span>
-    </a>
-    <a href="#" class="category-panels__item">
-        <img src="~/assets/placeholders/category-soups.jpg" />
-        <span>Zupy</span>
-    </a>
-    <a href="#" class="category-panels__item">
-        <img src="~/assets/placeholders/category-breakfasts.jpg" />
-        <span>Śniadania</span>
-    </a>
-    <a href="#" class="category-panels__item">
-        <img src="~/assets/placeholders/category-soups.jpg" />
-        <span>Zupy</span>
-    </a>
+    @for (int i = 0; i < 6; i++)
+    {
+        <a href="#" class="category-panels__item">
+            <img src="~/assets/placeholders/category-soups.jpg" class="category-panels__item__bg" />
+            <div class="category-panels__item__content">
+                <span>Zupy</span>
+            </div>
+        </a>
+    }
 </div>
 
 <h2 class="h2">Popularne przepisy</h2>

@@ -1,0 +1,48 @@
+.filters-sidebar{
+  @include d-flex($dir: column);
+  background-color: $white;
+  padding: 15px;
+  border-radius: 5px;
+  @include m-not-last(12px, b);
+
+  & h3{
+    margin-bottom: 12px;
+  }
+
+  &__field{
+    &--search, &--categories, &--ingredients{
+      padding: 12px 9px;
+      border: 1px solid;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    &--categories, &--ingredients{
+      @include d-flex($dir: column);
+      cursor: pointer;
+    }
+
+    &--search{
+      @include d-flex($ai: center, $jc: space-between);
+      color: $grey-600;
+
+      & input{
+        width: calc(100% - 26px);
+      }
+
+      & button{
+        width: 20px;
+      }
+    }
+
+    &--categories{
+      color: $dark-red;
+    }
+
+    &--ingredients{
+      color: $blue;
+    }
+  }
+}

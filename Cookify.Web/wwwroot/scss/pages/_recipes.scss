@@ -1,0 +1,15 @@
+.recipes-page{
+  @include d-flex($dir: column);
+
+  &__main{
+    @include d-flex($jc: space-between);
+  }
+
+  &__sidebar{
+    width: 255px;
+  }
+
+  &__grid{
+    width: calc(100% - 285px);
+  }
+}

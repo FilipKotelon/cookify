@@ -31,6 +31,7 @@ body{
 
 input{
   border: none;
+  font: inherit;
 
   &:focus{
     outline: none;
@@ -38,6 +39,7 @@ input{
 }
 
 button{
+  font: inherit;
   cursor: pointer;
   border: none;
   background-color: transparent;

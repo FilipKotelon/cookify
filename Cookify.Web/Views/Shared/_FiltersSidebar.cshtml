@@ -1,0 +1,18 @@
+﻿<form method="post" asp-area="User" asp-controller="Recipe" asp-action="Index" class="filters-sidebar">
+    <h3 class="h3">Filtruj wyniki</h3>
+
+    <div class="filters-sidebar__field--search">
+        <input type="text" name="search" placeholder="Szukaj..." />
+        <button>
+            <img src="~/assets/icons/components/search.svg" alt="Szukaj " />
+        </button>
+    </div>
+
+    <div class="filters-sidebar__field--categories open-category-popup">
+        <span>Kategorie</span>
+    </div>
+
+    <div class="filters-sidebar__field--ingredients open-ingredient-popup">
+        <span>Składniki</span>
+    </div>
+</form>

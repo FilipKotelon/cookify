@@ -2,21 +2,35 @@
     @include flex-row-6(6px);
 
     &__item {
-        @include d-flex($center: true);
-        height: 279px;
-        font-family: 'Montserrat';
-        font-weight: normal;
+        height: 215px;
         font-size: 18px;
         position: relative;
+        border-radius: 5px;
+        overflow: hidden;
 
-        & span {
-            position: absolute;
-            color: $white;
+        &__bg{
+            @include abs(0, 0);
+            @include img-cover;
+            z-index: 0;
+        }
+
+        &__content{
+            @include square(100%);
+            @include d-flex($center: true);
+            background: rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 1;
+            font-weight: bold;
+            @include transition;
+
+            & span {
+                color: $white;
+            }
         }
 
         &:hover {
-            & img {
-                transform: scale(.95);
+            & .category-panels__item__content {
+                background: rgba(0, 0, 0, 0.2);
             }
         }
     }
