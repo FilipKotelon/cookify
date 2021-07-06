@@ -1,5 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
+
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
@@ -58,10 +59,10 @@
                 }
                 else
                 {
-                    <a asp-area="Identity" asp-page="/Account/Login" class="ck-dropdown-menu__link">
+                    <a asp-area="User" asp-page="/Account/Login" class="ck-dropdown-menu__link">
                         Zaloguj się
                     </a>
-                    <a asp-area="Identity" asp-page="/Account/Register" class="ck-dropdown-menu__link">
+                    <a asp-area="User" asp-page="/Account/Register" class="ck-dropdown-menu__link">
                         Zarejestruj się
                     </a>
                 }
