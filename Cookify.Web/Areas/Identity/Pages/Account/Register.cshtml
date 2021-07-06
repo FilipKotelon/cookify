@@ -1,47 +1,44 @@
 ﻿@page
 @model RegisterModel
-@using Cookify.Utility 
+@using Cookify.Utility
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Rejestracja";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<div class="row">
-    <div class="col-md-4">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Name">User Name</label>
-                <input asp-for="Input.Name" class="form-control" />
-                <span asp-validation-for="Input.Name" class="text-danger"></span>
-            </div><div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            @if (User.IsInRole(StaticDetails.Role_Admin))
-            {
-                <div class="form-group">
-                    <label asp-for="Input.Role"></label>
-                    @Html.DropDownListFor(m=>m.Input.Role, Model.Input.RoleList,"-Please select a role", new { @class = "form-control" })
-                </div>
-            }
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+<form class="ck-form white-panel" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <h1 class="ck-form__title h1">@ViewData["Title"]</h1>
+    <h4 class="ck-form__info">Masz już konto?<a asp-area="Identity" asp-page="/Account/Login" class="text-orange"> Zaloguj się!</a></h4>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="ck-form__field">
+        <input asp-for="Input.Name" class="bordered-input" placeholder="Nazwa użytkownika" />
+        <span asp-validation-for="Input.Name" class="text-danger"></span>
     </div>
+    <div class="ck-form__field">
+        <input asp-for="Input.Email" class="bordered-input" placeholder="E-mail" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="ck-form__field">
+        <input asp-for="Input.Password" class="bordered-input" placeholder="Hasło" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+    <div class="ck-form__field">
+        <input asp-for="Input.ConfirmPassword" class="bordered-input" placeholder="Powtórz hasło" />
+        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+    </div>
+    @*
+        @if (User.IsInRole(StaticDetails.Role_Admin))
+        {
+            <div class="form-group">
+                <label asp-for="Input.Role"></label>
+                @Html.DropDownListFor(m => m.Input.Role, Model.Input.RoleList, "-Please select a role", new { @class = "form-control" })
+            </div>
+        }
+    *@
+    <button type="submit" class="ck-btn">Utwórz konto</button>
+</form>
+
+@*
     <div class="col-md-6 col-md-offset-2">
         <section>
             <h4>Use another service to register.</h4>
@@ -71,8 +68,8 @@
                 }
             }
         </section>
-    </div>
-</div>
+    </div>*@
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

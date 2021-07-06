@@ -15,13 +15,11 @@
     @await Component.InvokeAsync("SearchPopup")
     @await Component.InvokeAsync("CategoryPopup")
     @await Component.InvokeAsync("IngredientPopup")
-    
+
     @RenderBody()
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - Cookify - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
+    <footer class="footer">
+        <p>&copy; Cookify 2021 - Wszelkie prawa zastrzeżone - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p>
     </footer>
     @*<script src="~/lib/jquery/dist/jquery.min.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
@@ -29,3 +27,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+@*<footer class="border-top footer text-muted">*@
