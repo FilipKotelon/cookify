@@ -2,16 +2,32 @@
     @include flex-row-4(14px);
 
     &__item {
-        @include d-flex($center: true);
-        height: 280px;
+        @include d-flex($dir: column, $center: true);
         position: relative;
         border-radius: 5px;
         overflow: hidden;
 
-/*        &:hover {
-            & img {
-                transform: scale(.95);
-            }
-        }*/
+        &__desc {
+            height: 80px;
+            text-align: left;
+            margin-left: 13px;
+        }
+
+        &__title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-left: 13px;
+        }
+
+        &__info {
+            margin-bottom: 40px;
+            font-size: 10px;
+        }
+
+        &__img-con {
+        }
+
+        &__img {
+        }
     }
 }
