@@ -18,3 +18,21 @@
     @include m-not-last(24px, r);
   }
 }
+
+.ck-btn{
+  @include d-flex($center: true);
+  border: 1px solid $orange;
+  background-color: $white;
+  border-radius: 30px;
+  height: 42px;
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  color: $orange;
+  @include transition;
+
+  &:hover{
+    background-color: $orange;
+    color: $white;
+  }
+}

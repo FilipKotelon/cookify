@@ -9,21 +9,25 @@
 
 @import "./vendors/bootstrap";
 
+@import "./components/buttons";
+@import "./components/inputs";
+@import "./components/panels";
+
 @import "./components/admin-form";
 @import "./components/admin-panels";
-@import "./components/buttons";
+@import "./components/category-panels";
 @import "./components/dropdown-menu";
 @import "./components/favorite-heart";
 @import "./components/filters-sidebar";
+@import "./components/form";
+@import "./components/home-header";
 @import "./components/popup";
+@import "./components/product-grid";
 @import "./components/recipe-brief";
 @import "./components/search-bar";
 @import "./components/table";
 @import "./components/title-card";
 @import "./components/user-panels";
-@import "./components/home-header";
-@import "./components/category-panels";
-@import "./components/product-grid";
 
 @import "./layout/admin-header";
 @import "./layout/container";

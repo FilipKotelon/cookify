@@ -1,0 +1,24 @@
+.ck-form{
+  @include d-flex($dir: column, $ai: center);
+  max-width: 640px;
+  padding: 20px 30px 32px;
+  margin: 0 auto;
+
+  &__title, &__info{
+    margin-bottom: 36px;
+  }
+
+  &__info{
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  & .bordered-input{
+    margin-bottom: 16px;
+  }
+
+  & .ck-btn{
+    margin-top: 20px;
+  }
+}
