@@ -14,11 +14,32 @@
     line-height: 22px;
   }
 
-  & .bordered-input{
+  &__field{
+    width: 100%;
     margin-bottom: 16px;
   }
 
   & .ck-btn{
+    margin-top: 36px;
+  }
+
+  &__checkbox{
+    & input{
+      margin-right: 8px;
+    }
+  }
+
+  &__additional{
+    @include d-flex($dir: column, $ai: center);
+    text-align: center;
     margin-top: 20px;
+
+    & > * {
+      font-weight: bold;
+
+      &:not(:last-child){
+        margin-bottom: 12px;
+      }
+    }
   }
 }
