@@ -2,15 +2,23 @@
     @include flex-row-4(14px);
 
     &__item {
-        @include d-flex($dir: column, $center: true);
+        @include d-flex($dir: column);
         position: relative;
         border-radius: 5px;
         overflow: hidden;
         background-color: $white;
 
+        & .favorite-heart{
+          @include abs($t: 15px, $r: 15px);
+          @include transition;
+
+          &:hover{
+            transform: scale(1.12);
+          }
+        }
+
         &__desc {
             height: 80px;
-            width: 462px;
 
             &__title {
                 margin-left: 13px;

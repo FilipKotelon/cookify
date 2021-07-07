@@ -9,12 +9,13 @@ export class App{
 
   init(){
     this.setupPopups();
-    }
+    this.setupFavorites();
+  }
 
-    setupFavorites() {
-        const hearts = document.querySelectorAll('.favorite-heart');
-        hearts.forEach(heart => new FavoriteHeart(heart as HTMLElement, false));
-    }
+  setupFavorites() {
+    const hearts = document.querySelectorAll('.favorite-heart');
+    hearts.forEach(heart => new FavoriteHeart(heart as HTMLElement, false));
+  }
 
   setupPopups(){
     const popupArr = [];

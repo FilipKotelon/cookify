@@ -9,35 +9,33 @@ export class FavoriteHeart{
   }
 
   init(){
-    this.setupOnFill();
-    this.setupOnEmpty();
+    this.setupFilling();
   }
 
-  setupOnFill(){
+  setupFilling(){
     this.el.addEventListener('click', () => {
-      this.addToFavorites();
-      this.fillHeart();
-    })
-  }
-
-  setupOnEmpty(){
-    this.el.addEventListener('click', () => {
-      this.removeFromFavorites();
-      this.emptyHeart();
+      if(!this.filled){
+        this.addToFavorites();
+        this.fillHeart();
+      } else {
+        this.removeFromFavorites();
+        this.emptyHeart();
+      }
     })
   }
 
   fillHeart(){
-      this.el.classList.add('filled');
-      this.el.style.opacity = '1';
+    this.el.classList.add('filled');
+    this.filled = true;
   }
 
   emptyHeart(){
     this.el.classList.remove('filled');
+    this.filled = false;
   }
 
   addToFavorites(){
-
+    
   }
 
   removeFromFavorites(){

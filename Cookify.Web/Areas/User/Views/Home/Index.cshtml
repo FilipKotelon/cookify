@@ -42,39 +42,9 @@
 <section class="ck-container">
     <h2 class="h2"><span>Popularne przepisy</span></h2>
     <div class="product-grid">
-        @for (int i = 0; i < 4; i++)
+        @foreach (var recipe in Model)
         {
-            <div class="product-grid__item">
-
-                <div class="product-grid__item__img-con">
-                    <a asp-area="User" asp-controller="Recipe" asp-action="Details" class="product-grid_item">
-                        <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
-                    </a>
-                        <div class="favorite-heart">
-                            <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">
-                            <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
-                        </div>
-                </div>
-
-                <div class="product-grid__item__desc">
-                    <a asp-area="User" asp-controller="Recipe" asp-action="Details" class="product-grid_item__desc">
-                        <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
-                    </a>
-                        <div class="product-grid__item__desc__info">
-
-                            <div class="product-grid__item__desc__info__item">
-                                <img src="~/assets/icons/components/time.svg" alt="">
-                                <span>20 min</span>
-                            </div>
-                            <div class="product-grid__item__desc__info__item">
-                                <img src="~/assets/icons/components/difficulty-slim.svg" alt="">
-                                <span>Łatwy</span>
-                            </div>
-
-                        </div>
-                </div>
-
-            </div>
+            <partial name="_RecipeGridItem" model="@recipe" />
         }
     </div>
 </section>
@@ -82,39 +52,9 @@
 <section class="ck-container">
     <h2 class="h2"><span>Najnowsze przepisy</span></h2>
     <div class="product-grid">
-        @for (int i = 0; i < 4; i++)
+        @foreach (var recipe in Model)
         {
-            <div class="product-grid__item">
-
-                <div class="product-grid__item__img-con">
-                    <a asp-area="User" asp-controller="Recipe" asp-action="Details" class="product-grid_item">
-                        <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
-                    </a>
-                    <div class="favorite-heart">
-                        <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">
-                        <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
-                    </div>
-                </div>
-
-                <div class="product-grid__item__desc">
-                    <a asp-area="User" asp-controller="Recipe" asp-action="Details" class="product-grid_item__desc">
-                        <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
-                    </a>
-                    <div class="product-grid__item__desc__info">
-
-                        <div class="product-grid__item__desc__info__item">
-                            <img src="~/assets/icons/components/time.svg" alt="">
-                            <span>20 min</span>
-                        </div>
-                        <div class="product-grid__item__desc__info__item">
-                            <img src="~/assets/icons/components/difficulty-slim.svg" alt="">
-                            <span>Łatwy</span>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+            <partial name="_RecipeGridItem" model="@recipe" />
         }
     </div>
 </section>
