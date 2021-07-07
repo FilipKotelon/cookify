@@ -1,1 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+<svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.00004 14.2121C11.6819 14.2121 14.6667 11.2273 14.6667 7.54545C14.6667 3.86355 11.6819 0.878784 8.00004 0.878784C4.31814 0.878784 1.33337 3.86355 1.33337 7.54545C1.33337 11.2273 4.31814 14.2121 8.00004 14.2121Z" stroke="#110011" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

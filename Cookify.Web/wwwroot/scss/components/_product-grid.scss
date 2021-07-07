@@ -6,30 +6,43 @@
         position: relative;
         border-radius: 5px;
         overflow: hidden;
+        background-color: $white;
 
         &__desc {
             height: 80px;
-            text-align: left;
-            margin-left: 13px;
-        }
+            width: 462px;
 
-        &__title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-left: 13px;
-        }
+            &__title {
+                margin-left: 13px;
+                margin-top: 10px;
+                font-size: 18px;
+                font-weight: bold;
+            }
 
-        &__info {
-            margin-bottom: 40px;
-            font-size: 10px;
+            &__info {
+                @include d-flex($ai: flex-start);
+                @include m-not-last(10px, r);
+                margin-left: 13px;
+
+                &__item {
+                    @include d-flex($ai: center);
+                    margin-top: 10px;
+                    font-size: 10px;
+
+                    & img {
+                        @include square(16px);
+                        margin-right: 4px;
+                    }
+                }
+            }
         }
 
         &__img-con {
-          @include rect(100%, 280px);
+            @include rect(100%, 280px);
         }
 
         &__img {
-          @include img-cover;
+            @include img-cover;
         }
     }
 }

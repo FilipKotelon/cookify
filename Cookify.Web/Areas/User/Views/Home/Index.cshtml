@@ -47,27 +47,31 @@
             <div class="product-grid__item">
 
                 <div class="product-grid__item__img-con">
-                    <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
-                    <div class="favorite-heart">
-                        <img class="heart-empty" src="~/assets/icons/components/heart-orange.svg" alt="">
-                        <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
-                    </div>
+                    <a asp-area="User" asp-controller="Recipe" asp-action="Details" class="product-grid_item">
+                        <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
+                    </a>
+                        <div class="favorite-heart">
+                            <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">
+                            <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
+                        </div>
                 </div>
 
                 <div class="product-grid__item__desc">
-                    <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
-                    <div class="product-grid__item__desc__info">
+                    <a asp-area="User" asp-controller="Recipe" asp-action="Details" class="product-grid_item__desc">
+                        <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
+                    </a>
+                        <div class="product-grid__item__desc__info">
 
-                        <div class="product-grid__item__desc__info__item">
-                            <img src="~/assets/icons/components/time.svg" alt="">
-                            <span>20 min</span>
-                        </div>
-                        <div class="product-grid__item__desc__info__item">
-                            <img src="~/assets/icons/components/time.svg" alt="">
-                            <span>Łatwy</span>
-                        </div>
+                            <div class="product-grid__item__desc__info__item">
+                                <img src="~/assets/icons/components/time.svg" alt="">
+                                <span>20 min</span>
+                            </div>
+                            <div class="product-grid__item__desc__info__item">
+                                <img src="~/assets/icons/components/difficulty-slim.svg" alt="">
+                                <span>Łatwy</span>
+                            </div>
 
-                    </div>
+                        </div>
                 </div>
 
             </div>
@@ -83,15 +87,19 @@
             <div class="product-grid__item">
 
                 <div class="product-grid__item__img-con">
-                    <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
+                    <a asp-area="User" asp-controller="Recipe" asp-action="Details" class="product-grid_item">
+                        <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
+                    </a>
                     <div class="favorite-heart">
-                        <img class="heart-empty" src="~/assets/icons/components/heart-orange.svg" alt="">
+                        <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">
                         <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
                     </div>
                 </div>
 
                 <div class="product-grid__item__desc">
-                    <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
+                    <a asp-area="User" asp-controller="Recipe" asp-action="Details" class="product-grid_item__desc">
+                        <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
+                    </a>
                     <div class="product-grid__item__desc__info">
 
                         <div class="product-grid__item__desc__info__item">
@@ -99,7 +107,7 @@
                             <span>20 min</span>
                         </div>
                         <div class="product-grid__item__desc__info__item">
-                            <img src="~/assets/icons/components/time.svg" alt="">
+                            <img src="~/assets/icons/components/difficulty-slim.svg" alt="">
                             <span>Łatwy</span>
                         </div>
 

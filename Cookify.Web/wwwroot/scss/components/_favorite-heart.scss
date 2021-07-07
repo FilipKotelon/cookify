@@ -6,12 +6,14 @@
     right: 15px;
 
     & .heart-filled {
+        width: 70%;
         opacity: 0;
         @include transition;
         position: absolute;
     }
 
     & .heart-empty {
+        width: 70%;
         opacity: 1;
         @include transition;
         position: absolute;
