@@ -2,8 +2,11 @@
   @include d-flex($center: true);
   padding: 24px;
   text-align: center;
-  cursor: pointer;
   position: relative;
+
+  &.clickable{
+    cursor: pointer;
+  }
 
   &::after{
     @include default-after;
@@ -14,7 +17,7 @@
     @include transition;
   }
 
-  &:hover{
+  &.clickable:hover{
     &::after{
       transform: scale(.95);
     }

@@ -40,7 +40,9 @@ export class Popup{
   }
 
   open(){
-    this.beforeOpen();
+    if(this.beforeOpen){
+      this.beforeOpen();
+    }
     this.popup.classList.add('open');
     document.querySelector('html').classList.add('no-scroll');
   }

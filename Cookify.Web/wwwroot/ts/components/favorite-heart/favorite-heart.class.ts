@@ -1,3 +1,4 @@
+import { userMessage } from './../../app/app.class';
 import { API } from './../API/API.class';
 import 'axios';
 import axios from 'axios';
@@ -59,6 +60,7 @@ export class FavoriteHeart{
       console.log(r);
     })
     .catch(error => {
+      userMessage.showMessage('Zaloguj się, aby móc dodawać przepisy do ulubionych');
       console.log(error);
     })
   }

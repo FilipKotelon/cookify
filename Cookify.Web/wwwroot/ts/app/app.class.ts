@@ -1,6 +1,10 @@
+import { SearchController } from './../components/search-controller/search-controller.class';
+import { UserMessage } from './../components/user-message/user-message.class';
 import { PopupController } from './../components/popup-controller/popup-controller.class';
 import { Popup } from './../components/popup/popup.class';
 import { FavoriteHeart } from './../components/favorite-heart/favorite-heart.class';
+
+export let userMessage: UserMessage = null;
 
 export class App{
   constructor(){
@@ -10,6 +14,7 @@ export class App{
   init(){
     this.setupPopups();
     this.setupFavorites();
+    this.setupSearch();
   }
 
   setupFavorites() {
@@ -62,9 +67,15 @@ export class App{
         closersQuerySelector: '.close-message-popup'
       })
 
+      userMessage = new UserMessage(messagePopupEl, messagePopup);
+
       //popupArr.push(messagePopup);
     }
 
     new PopupController(popupArr);
+  }
+
+  setupSearch(){
+    const searchController = new SearchController();
   }
 }
