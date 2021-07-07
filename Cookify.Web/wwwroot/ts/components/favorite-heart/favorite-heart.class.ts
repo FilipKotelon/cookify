@@ -23,10 +23,10 @@ export class FavoriteHeart{
   setupFilling(){
     this.el.addEventListener('click', () => {
       if(!this.filled){
-        this.addToFavorites();
+        this.toggleFavoriteRecipe();
         this.fillHeart();
       } else {
-        this.removeFromFavorites();
+        this.toggleFavoriteRecipe();
         this.emptyHeart();
       }
     })
@@ -42,7 +42,7 @@ export class FavoriteHeart{
     this.filled = false;
   }
 
-  addToFavorites(){
+  toggleFavoriteRecipe(){
     axios(
       {
         method: 'post',
@@ -61,9 +61,5 @@ export class FavoriteHeart{
     .catch(error => {
       console.log(error);
     })
-  }
-
-  removeFromFavorites(){
-
   }
 }

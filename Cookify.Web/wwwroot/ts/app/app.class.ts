@@ -54,6 +54,17 @@ export class App{
       popupArr.push(ingredientPopup);
     }
 
+    const messagePopupEl = document.getElementById('user-message-popup');
+    if(messagePopupEl){
+      const messagePopup = new Popup({
+        popupElementId: 'user-message-popup',
+        openersQuerySelector: '.open-message-popup',
+        closersQuerySelector: '.close-message-popup'
+      })
+
+      //popupArr.push(messagePopup);
+    }
+
     new PopupController(popupArr);
   }
 }
