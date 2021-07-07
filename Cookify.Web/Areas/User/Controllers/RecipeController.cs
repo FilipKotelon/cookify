@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Cookify.DataAccess.Repository.IRepository;
+﻿using Cookify.DataAccess.Repository.IRepository;
 using Cookify.Models;
 using Cookify.Models.ViewModels;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 using System.Security.Claims;
-using System.Web;
 
 namespace Cookify.Areas.User.Controllers
 {
@@ -27,10 +26,14 @@ namespace Cookify.Areas.User.Controllers
 
         public IActionResult Details(int id)
         {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+
             RecipeViewModel recipeViewModel = new RecipeViewModel()
             {
                 Recipe = _unitOfWork.Recipe.GetFirstOrDefault(r => r.Id == id, includeProperties: "RecipeCategory"),
-                Commnets = _unitOfWork.Comment.GetAll(comment => comment.RecipeId == id)
+                Comments = _unitOfWork.Comment.GetAll(comment => comment.RecipeId == id),
+                FavoriteRecipe = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, id)
             };
 
             return View(recipeViewModel);
@@ -41,11 +44,35 @@ namespace Cookify.Areas.User.Controllers
         public IActionResult AddComment(RecipeViewModel recipeViewModel)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var loggedUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
             
-            recipeViewModel.Comment.ApplicationUserId = loggedUserId;
+            recipeViewModel.Comment.ApplicationUserId = currentUserId;
 
             _unitOfWork.Comment.Add(recipeViewModel.Comment);
+            _unitOfWork.Save();
+
+            return RedirectToAction("Details", new { id = recipeViewModel.Comment.RecipeId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult AddToFavorites(RecipeViewModel recipeViewModel)
+        {
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+            var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            FavoriteRecipe favoriteRecipe = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, recipeViewModel.FavoriteRecipe.RecipeId);
+
+            if (favoriteRecipe != null)
+            {
+                int dupa = favoriteRecipe.Id;
+                _unitOfWork.FavoriteRecipe.Remove(dupa);
+                _unitOfWork.Save();
+                return RedirectToAction("Details", new { id = recipeViewModel.Comment.RecipeId });
+            }
+
+            recipeViewModel.FavoriteRecipe.ApplicationUserId = currentUserId;
+            _unitOfWork.FavoriteRecipe.Add(recipeViewModel.FavoriteRecipe);
             _unitOfWork.Save();
 
             return RedirectToAction("Details", new { id = recipeViewModel.Comment.RecipeId });

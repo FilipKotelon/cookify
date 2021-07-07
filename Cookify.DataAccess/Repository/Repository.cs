@@ -74,7 +74,7 @@ namespace Cookify.DataAccess.Repository
 			return query.FirstOrDefault();
 		}
 
-		public void Remove(string id)
+		public void Remove(int id)
 		{
 			T entity = dbSet.Find(id);
 			Remove(entity);
