@@ -1,11 +1,19 @@
+import { API } from './../API/API.class';
+import 'axios';
+import axios from 'axios';
+
 export class FavoriteHeart{
+  api: API;
   el: HTMLElement;
   filled: boolean;
+  recipeId: number;
 
   constructor(el: HTMLElement, checked = false) {
-      this.el = el;
-      this.filled = checked;
-      this.init();
+    this.api = new API();
+    this.el = el;
+    this.filled = checked;
+    this.recipeId = parseInt(this.el.dataset.recipeId);
+    this.init();
   }
 
   init(){
@@ -35,7 +43,24 @@ export class FavoriteHeart{
   }
 
   addToFavorites(){
-    
+    axios(
+      {
+        method: 'post',
+        url: '/api/recipe/addToFavorites',
+        data: {
+          id: this.recipeId
+        },
+        headers: {
+          'RequestVerificationToken' : this.api.antiForgeryToken
+        }
+      }
+    )
+    .then((r) => {
+      console.log(r);
+    })
+    .catch(error => {
+      console.log(error);
+    })
   }
 
   removeFromFavorites(){

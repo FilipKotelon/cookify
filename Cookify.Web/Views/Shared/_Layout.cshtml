@@ -16,6 +16,8 @@
     @await Component.InvokeAsync("CategoryPopup")
     @await Component.InvokeAsync("IngredientPopup")
 
+    @Html.AntiForgeryToken()
+
     @RenderBody()
 
     <footer class="footer">
