@@ -37,13 +37,19 @@ a{
 }
 
 .h2 {
-    /*@include after-under($top: 10px );*/
-    font-weight: 700;
-    font-style: normal;
-    font-size: 32px;
-    color: $orange;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 32px;
+  color: $orange;
+  margin-bottom: 45px;
+
+  & span{
     position: relative;
-    left: 15px;
+
+    &::after{
+      @include after-under($w: 100%, $h: 3px, $top: calc(100% + 3px), $color: $orange);
+    }
+  }
 }
 
 .h3{

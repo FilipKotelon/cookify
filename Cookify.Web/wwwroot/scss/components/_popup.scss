@@ -29,6 +29,12 @@
     & .search-bar{
       margin-bottom: 60px;
     }
+
+    &__scrollable{
+      padding-right: 26px;
+      overflow: auto;
+      @include scrollbar($color: $white, $bg: rgba(255, 255, 255, .3), $w: 6px, $rounded: false, $allBg: rgba(255, 255, 255, .3));
+    }
   }
 
   &.search-popup{
@@ -40,6 +46,21 @@
 
         & .title-card{
           @include rect(320px, 170px);
+        }
+      }
+    }
+  }
+
+  &.category-popup, &.ingredient-popup{
+    overflow: hidden;
+
+    & .popup{
+      &__content{
+        height: 100%;
+        padding-top: 150px;
+
+        &__scrollable{
+          height: calc(100% - 120px);
         }
       }
     }

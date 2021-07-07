@@ -42,9 +42,11 @@ export class Popup{
   open(){
     this.beforeOpen();
     this.popup.classList.add('open');
+    document.querySelector('html').classList.add('no-scroll');
   }
 
   close(){
     this.popup.classList.remove('open');
+    document.querySelector('html').classList.remove('no-scroll');
   }
 }

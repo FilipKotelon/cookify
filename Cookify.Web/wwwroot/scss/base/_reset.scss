@@ -18,6 +18,7 @@ body{
   overflow-x: hidden;
   position: relative;
   background-color: $cream;
+  padding-bottom: 110px;
 
   &.grey-body{
     background-color: $grey-100;
@@ -55,4 +56,8 @@ input[type="checkbox"]{
 
 label{
   cursor: pointer;
+}
+
+section{
+  margin-bottom: 60px;
 }

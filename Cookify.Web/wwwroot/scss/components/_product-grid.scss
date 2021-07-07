@@ -25,9 +25,11 @@
         }
 
         &__img-con {
+          @include rect(100%, 280px);
         }
 
         &__img {
+          @include img-cover;
         }
     }
 }

@@ -1,15 +1,15 @@
-﻿<div class="home-header">
+﻿<div class="home-header "ck-container">
     <h1 class="h1">Na co masz dzisiaj ochotę?</h1>
     <partial name="_SearchBarPartial" />
 </div>
 
 
-<div class="user-panels ck-container">
+<section class="user-panels ck-container">
     <a href="#" class="user-panels__item">
         <img src="~/assets/placeholders/user-recipes.jpg" />
         <span>Wszystkie przepisy</span>
     </a>
-    <a href="#" class="user-panels__item">
+    <a href="#" class="user-panels__item open-category-popup">
         <img src="~/assets/placeholders/user-categories.jpg" />
         <span>Wszystkie kategorie</span>
     </a>
@@ -17,89 +17,96 @@
         <img src="~/assets/placeholders/user-popular.jpg" />
         <span>Najpopularniejsze przepisy</span>
     </a>
-    <a href="#" class="user-panels__item">
+    <a href="#" class="user-panels__item open-ingredient-popup">
         <img class="user-panels__item" src="~/assets/placeholders/user-ingredients-search.jpg" />
         <span>Szukaj wg. składników</span>
     </a>
-</div>
+</section>
 
-<h2 class="h2">Popularne kategorie</h2>
+<section class="ck-container">
+    <h2 class="h2"><span>Popularne kategorie</span></h2>
 
-<div class="category-panels ck-container">
-    @for (int i = 0; i < 6; i++)
-    {
-        <a href="#" class="category-panels__item">
-            <img src="~/assets/placeholders/category-soups.jpg" class="category-panels__item__bg" />
-            <div class="category-panels__item__content">
-                <span>Zupy</span>
-            </div>
-        </a>
-    }
-</div>
-
-<h2 class="h2">Popularne przepisy</h2>
-<div class="product-grid">
-    @for (int i = 0; i < 4; i++)
-    {
-        <div class="product-grid__item">
-
-            <div class="product-grid__item__img-con">
-                <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
-                <div class="favorite-heart">
-                    <img class="heart-empty" src="~/assets/icons/components/heart-orange.svg" alt="">
-                    <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
+    <div class="category-panels">
+        @for (int i = 0; i < 6; i++)
+        {
+            <a href="#" class="category-panels__item">
+                <img src="~/assets/placeholders/category-soups.jpg" class="category-panels__item__bg" />
+                <div class="category-panels__item__content">
+                    <span>Zupy</span>
                 </div>
-            </div>
+            </a>
+        }
+    </div>
+</section>
 
-            <div class="product-grid__item__desc">
-                <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
-                <div class="product-grid__item__desc__info">
+<section class="ck-container">
+    <h2 class="h2"><span>Popularne przepisy</span></h2>
+    <div class="product-grid">
+        @for (int i = 0; i < 4; i++)
+        {
+            <div class="product-grid__item">
 
-                    <div class="product-grid__item__desc__info__item">
-                        <img src="~/assets/icons/components/time.svg" alt="">
-                        <span>20 min</span>
+                <div class="product-grid__item__img-con">
+                    <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
+                    <div class="favorite-heart">
+                        <img class="heart-empty" src="~/assets/icons/components/heart-orange.svg" alt="">
+                        <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
                     </div>
-                    <div class="product-grid__item__desc__info__item">
-                        <img src="~/assets/icons/components/time.svg" alt="">
-                        <span>Łatwy</span>
-                    </div>
-
                 </div>
-            </div>
 
-        </div>
-    }
-</div>
+                <div class="product-grid__item__desc">
+                    <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
+                    <div class="product-grid__item__desc__info">
 
-<h2 class="h2">Najnowsze przepisy</h2>
-<div class="product-grid">
-    @for (int i = 0; i < 4; i++) { 
-        <div class="product-grid__item">
+                        <div class="product-grid__item__desc__info__item">
+                            <img src="~/assets/icons/components/time.svg" alt="">
+                            <span>20 min</span>
+                        </div>
+                        <div class="product-grid__item__desc__info__item">
+                            <img src="~/assets/icons/components/time.svg" alt="">
+                            <span>Łatwy</span>
+                        </div>
 
-            <div class="product-grid__item__img-con">
-                <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
-                <div class="favorite-heart">
-                    <img class="heart-empty" src="~/assets/icons/components/heart-orange.svg" alt="">
-                    <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
-                </div>
-            </div>
-
-            <div class="product-grid__item__desc">
-                <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
-                <div class="product-grid__item__desc__info">
-
-                    <div class="product-grid__item__desc__info__item">
-                        <img src="~/assets/icons/components/time.svg" alt="">
-                        <span>20 min</span>
                     </div>
-                    <div class="product-grid__item__desc__info__item">
-                        <img src="~/assets/icons/components/time.svg" alt="">
-                        <span>Łatwy</span>
-                    </div>
-
                 </div>
-            </div>
 
-        </div>
-    }
-</div>
+            </div>
+        }
+    </div>
+</section>
+
+<section class="ck-container">
+    <h2 class="h2"><span>Najnowsze przepisy</span></h2>
+    <div class="product-grid">
+        @for (int i = 0; i < 4; i++)
+        {
+            <div class="product-grid__item">
+
+                <div class="product-grid__item__img-con">
+                    <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
+                    <div class="favorite-heart">
+                        <img class="heart-empty" src="~/assets/icons/components/heart-orange.svg" alt="">
+                        <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
+                    </div>
+                </div>
+
+                <div class="product-grid__item__desc">
+                    <div class="product-grid__item__desc__title">Pieczony kurczak z bukietem warzyw</div>
+                    <div class="product-grid__item__desc__info">
+
+                        <div class="product-grid__item__desc__info__item">
+                            <img src="~/assets/icons/components/time.svg" alt="">
+                            <span>20 min</span>
+                        </div>
+                        <div class="product-grid__item__desc__info__item">
+                            <img src="~/assets/icons/components/time.svg" alt="">
+                            <span>Łatwy</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</section>

@@ -3,6 +3,22 @@
         <img src="~/assets/icons/components/close-white.svg" alt="Zamknij" />
     </div>
     <div class="popup__content">
-        <div class="popup__content__title h1">Popup ze składnikami</div>
+        <div class="popup__content__title h1">Szukaj wg. składników</div>
+        <div class="popup__content__scrollable">
+            <div class="category-panels">
+                @if (Model.Count > 0)
+                {
+                    @foreach (var ingredient in Model)
+                    {
+                        <a href="#" class="category-panels__item">
+                            <img src="~/assets/placeholders/category-soups.jpg" class="category-panels__item__bg" />
+                            <div class="category-panels__item__content">
+                                <span>@ingredient.Name</span>
+                            </div>
+                        </a>
+                    }
+                }
+            </div>
+        </div>
     </div>
 </div>

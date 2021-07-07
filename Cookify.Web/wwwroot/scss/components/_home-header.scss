@@ -1,3 +1,4 @@
 ﻿.home-header {
-    @include d-flex($center: true, $dir: column);
+  @include d-flex($center: true, $dir: column);
+  margin-bottom: 120px;
 }

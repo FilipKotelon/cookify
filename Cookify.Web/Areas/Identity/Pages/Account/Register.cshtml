@@ -26,15 +26,15 @@
         <input asp-for="Input.ConfirmPassword" class="bordered-input" placeholder="Powtórz hasło" />
         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
     </div>
-    @*
-        @if (User.IsInRole(StaticDetails.Role_Admin))
-        {
-            <div class="form-group">
-                <label asp-for="Input.Role"></label>
-                @Html.DropDownListFor(m => m.Input.Role, Model.Input.RoleList, "-Please select a role", new { @class = "form-control" })
-            </div>
-        }
-    *@
+    
+    @if (User.IsInRole(StaticDetails.Role_Admin))
+    {
+        <div class="ck-form__field">
+            <label asp-for="Input.Role"></label>
+            @Html.DropDownListFor(m => m.Input.Role, Model.Input.RoleList, "-Please select a role", new { @class = "form-control" })
+        </div>
+    }
+    
     <button type="submit" class="ck-btn">Utwórz konto</button>
 </form>
 
