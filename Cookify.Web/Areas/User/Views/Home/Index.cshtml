@@ -1,4 +1,6 @@
-﻿<div class="home-header "ck-container">
+﻿@model Cookify.Models.ViewModels.HomeViewModel 
+
+<div class="home-header "ck-container">
     <h1 class="h1">Na co masz dzisiaj ochotę?</h1>
     <partial name="_SearchBarPartial" />
 </div>
@@ -42,7 +44,7 @@
 <section class="ck-container">
     <h2 class="h2"><span>Popularne przepisy</span></h2>
     <div class="product-grid">
-        @foreach (var recipe in Model)
+        @foreach (var recipe in Model.PopularRecipes)
         {
             <partial name="_RecipeGridItem" model="@recipe" />
         }
@@ -52,7 +54,7 @@
 <section class="ck-container">
     <h2 class="h2"><span>Najnowsze przepisy</span></h2>
     <div class="product-grid">
-        @foreach (var recipe in Model)
+        @foreach (var recipe in Model.NewRecipes)
         {
             <partial name="_RecipeGridItem" model="@recipe" />
         }
