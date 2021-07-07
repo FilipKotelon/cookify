@@ -40,17 +40,17 @@
         <tbody>
             @foreach (var recipe in Model)
             {
-            <tr>
-                <td width="10%">@recipe.Id</td>
-                <td width="15%">@recipe.Name</td>
-                <td width="25%">@recipe.Description</td>
-                <td width="10%">@recipe.RecipeCategory.Title</td>
-                <td width="10%">@recipe.DifficultyLevel</td>
-                <td width="10%">@recipe.PreparationTime</td>
-                <td width="10%"><input type="checkbox" disabled checked="@recipe.Accepted" /></td>
-                <td width="5%"><a asp-action="Upsert" asp-route-id="@recipe.Id" class="admin-btn">Edit</a></td>
-                <td width="5%"><a asp-action="Delete" asp-route-id="@recipe.Id" class="admin-btn">Delete</a></td>
-            </tr>
+                <tr>
+                    <td width="10%">@recipe.Id</td>
+                    <td width="15%">@recipe.Name</td>
+                    <td width="25%">@recipe.Description</td>
+                    <td width="10%">@recipe.RecipeCategory.Title</td>
+                    <td width="10%">@recipe.DifficultyLevel</td>
+                    <td width="10%">@recipe.PreparationTime</td>
+                    <td width="10%"><input type="checkbox" disabled checked="@recipe.Accepted" /></td>
+                    <td width="5%"><a asp-action="Upsert" asp-route-id="@recipe.Id" class="admin-btn">Edit</a></td>
+                    <td width="5%"><a asp-action="Delete" asp-route-id="@recipe.Id" class="admin-btn">Delete</a></td>
+                </tr>
             }
         </tbody>
     </table>

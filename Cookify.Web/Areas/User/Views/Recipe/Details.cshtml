@@ -48,11 +48,19 @@
                         <form method="post">
                             <textarea asp-for="Comment.Content" placeholder="Type content of your comment here..." style="width: 100%;"></textarea><br />
 
-                            <!-- Ten input ze stylem display: none na razie musi zostać! -->
-                            <input asp-for="Comment.RecipeId" type="text" value="@Model.Recipe.Id" style="display: none;" /><br />
-                            <!-- ------------------------------------------------------ -->
+                            <input hidden asp-for="Comment.RecipeId" value="@Model.Recipe.Id" />
+                            <input hidden asp-for="FavoriteRecipe.RecipeId" value="@Model.Recipe.Id" />
 
                             <button asp-controller="Recipe" asp-action="AddComment">Add comment</button>
+
+                            @if (Model.FavoriteRecipe == null)
+                            {
+                                <button asp-controller="Recipe" asp-action="AddToFavorites">Add to favorites</button>
+                            }
+                            else
+                            {
+                                <button asp-controller="Recipe" asp-action="AddToFavorites">Remove from favorites</button>
+                            }
                         </form>
                     </td>
                 </tr>
@@ -63,10 +71,10 @@
                 </tr>
             </tbody>
         </table>
-        @if (Model.Commnets.Count() > 0)
+        @if (Model.Comments.Count() > 0)
         {
             <ul>
-                @foreach (var comment in Model.Commnets)
+                @foreach (var comment in Model.Comments)
                 {
                     <li>@comment.Content</li>
                 }

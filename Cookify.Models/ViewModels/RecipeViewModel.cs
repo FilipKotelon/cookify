@@ -7,7 +7,8 @@ namespace Cookify.Models.ViewModels
 	{
 		public Recipe Recipe { get; set; }
 		public IEnumerable<SelectListItem> RecipeCategoryList { get; set; }
-		public IEnumerable<Comment> Commnets { get; set; }
+		public IEnumerable<Comment> Comments { get; set; }
 		public Comment Comment { get; set; }
+		public FavoriteRecipe FavoriteRecipe { get; set; }
 	}
 }

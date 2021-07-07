@@ -11,7 +11,7 @@ namespace Cookify.DataAccess.Repository.IRepository
 		IEnumerable<T> GetAll(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null);
 		T GetFirstOrDefault(Expression<Func<T, bool>> filter = null, string includeProperties = null);
 		void Add(T entity);
-		void Remove(string id);
+		void Remove(int id);
 		void Remove(T entity);
 		void Update(T entity);
 		void RemoveRange(IEnumerable<T> entity);
