@@ -25,10 +25,6 @@
                 @foreach (var recipe in Model)
                 {
                     <partial name="_RecipeGridItem" model="recipe" />
-                    <a asp-action="Details" asp-route-id="@recipe.Id" class="product-grid__item">
-                        <img src="~/assets/placeholders/chicken.jpg" />
-                        <span>@recipe.Name</span>
-                    </a>
                 }
             </div>
             }

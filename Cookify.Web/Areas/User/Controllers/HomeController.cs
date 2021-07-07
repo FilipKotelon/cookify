@@ -1,5 +1,6 @@
 ﻿using Cookify.DataAccess.Repository.IRepository;
 using Cookify.Models;
+using Cookify.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -25,7 +26,12 @@ namespace Cookify.Areas.User.Controllers
         {
             var recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.Accepted == true, includeProperties: "RecipeCategory").Take(4);
             var recipeCategories = _unitOfWork.RecipeCategory.GetAll().Take(6);
-            return View(recipes);
+
+            return View(new HomeViewModel {
+                Categories = recipeCategories,
+                NewRecipes = recipes,
+                PopularRecipes = recipes
+            });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
