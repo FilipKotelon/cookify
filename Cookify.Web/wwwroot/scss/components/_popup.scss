@@ -68,9 +68,10 @@
 
   &.user-message-popup{
     @include d-flex($center: true);
-    
+
     & .user-message-popup__content{
       max-width: 800px;
+      line-height: 27px;
     }
   }
 }

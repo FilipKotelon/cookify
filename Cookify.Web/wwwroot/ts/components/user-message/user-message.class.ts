@@ -17,7 +17,7 @@ export class UserMessage {
   }
 
   changeMessage(message: string){
-    this.messageEl.textContent = message;
+    this.messageEl.innerHTML = message;
   }
 
   open(){

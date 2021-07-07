@@ -1,4 +1,4 @@
-import { userMessage } from './../../app/app.class';
+import { userMessage, loader } from './../../app/app.class';
 import { API } from './../API/API.class';
 import 'axios';
 import axios from 'axios';
@@ -23,13 +23,7 @@ export class FavoriteHeart{
 
   setupFilling(){
     this.el.addEventListener('click', () => {
-      if(!this.filled){
-        this.toggleFavoriteRecipe();
-        this.fillHeart();
-      } else {
-        this.toggleFavoriteRecipe();
-        this.emptyHeart();
-      }
+      this.toggleFavoriteRecipe();
     })
   }
 
@@ -44,6 +38,8 @@ export class FavoriteHeart{
   }
 
   toggleFavoriteRecipe(){
+    loader.open();
+
     axios(
       {
         method: 'post',
@@ -57,10 +53,17 @@ export class FavoriteHeart{
       }
     )
     .then((r) => {
-      console.log(r);
+      loader.close();
+
+      if(!this.filled){
+        this.fillHeart();
+      } else {
+        this.emptyHeart();
+      }
     })
     .catch(error => {
-      userMessage.showMessage('Zaloguj się, aby móc dodawać przepisy do ulubionych');
+      loader.close();
+      userMessage.showMessage('Zaloguj się, aby móc dodawać przepisy do ulubionych. <br> Jeśli jesteś już zalogowany/a, spróbuj ponownie później.');
       console.log(error);
     })
   }

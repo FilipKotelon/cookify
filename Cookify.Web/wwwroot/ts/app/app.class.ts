@@ -1,3 +1,4 @@
+import { Loader } from './../components/loader/loader.class';
 import { SearchController } from './../components/search-controller/search-controller.class';
 import { UserMessage } from './../components/user-message/user-message.class';
 import { PopupController } from './../components/popup-controller/popup-controller.class';
@@ -5,6 +6,7 @@ import { Popup } from './../components/popup/popup.class';
 import { FavoriteHeart } from './../components/favorite-heart/favorite-heart.class';
 
 export let userMessage: UserMessage = null;
+export let loader: Loader = null;
 
 export class App{
   constructor(){
@@ -12,6 +14,7 @@ export class App{
   } 
 
   init(){
+    this.setupLoader();
     this.setupPopups();
     this.setupFavorites();
     this.setupSearch();
@@ -77,5 +80,10 @@ export class App{
 
   setupSearch(){
     const searchController = new SearchController();
+  }
+
+  setupLoader(){
+    const loaderEl = document.getElementById('loader');
+    loader = new Loader(loaderEl);
   }
 }
