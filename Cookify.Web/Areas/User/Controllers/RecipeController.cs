@@ -62,6 +62,13 @@ namespace Cookify.Areas.User.Controllers
         public IActionResult AddComment(RecipeViewModel recipeViewModel)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
+
+            if (claimsIdentity.FindFirst(ClaimTypes.NameIdentifier) == null)
+			{
+                // Użytkownik nie jest zalogowany, więc nie może dodać komentarza. Tu trzeba coś wymyślić.
+                return RedirectToAction("Details", new { id = recipeViewModel.Comment.RecipeId });
+            }
+
             var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
             
             recipeViewModel.Comment.ApplicationUserId = currentUserId;
