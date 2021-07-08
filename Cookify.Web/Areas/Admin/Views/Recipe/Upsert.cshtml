@@ -1,14 +1,14 @@
 ﻿@model Cookify.Models.ViewModels.RecipeViewModel
 
 @{
-    var title = "Create new recipe";
+    var title = "Dodaj nowy przepis";
 }
 
 <form method="post">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     @if (Model.Recipe.Id != 0)
     {
-        title = "Edit recipe";
+        title = "Edytuj przepis";
         <input type="hidden" asp-for="Recipe.Id" />
     }
     <div class="admin-header">
@@ -26,19 +26,24 @@
             <span asp-validation-for="Recipe.Description" class="text-danger"></span>
         </div>
         <div class="admin-form__group">
-            <label>Category</label>
+            <label>Kategoria</label>
             @Html.DropDownListFor(m => m.Recipe.RecipeCategoryId, Model.RecipeCategoryList, "> Select recipe category <", new { @class = "form-control" })
             <span asp-validation-for="Recipe.RecipeCategoryId" class="text-danger"></span>
         </div>
         <div class="admin-form__group">
-            <label asp-for="Recipe.DifficultyLevel">Difficulty Level</label>
+            <label asp-for="Recipe.DifficultyLevel">Poziom trudności</label>
             <input asp-for="Recipe.DifficultyLevel" />
             <span asp-validation-for="Recipe.DifficultyLevel" class="text-danger"></span>
         </div>
         <div class="admin-form__group">
-            <label asp-for="Recipe.PreparationTime">Preparation Time</label>
+            <label asp-for="Recipe.PreparationTime">Czas przygotowania</label>
             <input asp-for="Recipe.PreparationTime" />
             <span asp-validation-for="Recipe.PreparationTime" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="Recipe.ImageUrl">Adres URL zdjęcia</label>
+            <input asp-for="Recipe.ImageUrl" class="form-control" />
+            <span asp-validation-for="Recipe.ImageUrl" class="text-danger"></span>
         </div>
         <div class="admin-form__group">
             <label asp-for="Recipe.Accepted"></label>

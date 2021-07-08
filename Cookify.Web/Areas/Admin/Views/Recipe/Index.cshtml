@@ -11,29 +11,32 @@
                 <th width="10%">
                     Id
                 </th>
-                <th width="15%">
-                    Name
+                <th width="10%">
+                    Nazwa
                 </th>
-                <th width="25%">
-                    Description
+                <th width="20%">
+                    Opis
                 </th>
                 <th width="10%">
-                    Category
+                    Kategoria
                 </th>
                 <th width="10%">
-                    Difficulty Level
+                    Poziom trudności
                 </th>
                 <th width="10%">
-                    Preparation Time
+                    Czas przygotowania
                 </th>
                 <th width="10%">
-                    Accepted
+                    Adres URL zdjęcia
+                </th>
+                <th width="10%">
+                    Zaakceptowany?
                 </th>
                 <th width="5%">
-                    Edit
+                    Edytuj
                 </th>
                 <th width="5%">
-                    Delete
+                    Usuń
                 </th>
             </tr>
         </thead>
@@ -42,14 +45,15 @@
             {
                 <tr>
                     <td width="10%">@recipe.Id</td>
-                    <td width="15%">@recipe.Name</td>
-                    <td width="25%">@recipe.Description</td>
+                    <td width="10%">@recipe.Name</td>
+                    <td width="20%">@recipe.Description</td>
                     <td width="10%">@recipe.RecipeCategory.Title</td>
                     <td width="10%">@recipe.DifficultyLevel</td>
                     <td width="10%">@recipe.PreparationTime</td>
+                    <td width="10%">@recipe.ImageUrl</td>
                     <td width="10%"><input type="checkbox" disabled checked="@recipe.Accepted" /></td>
-                    <td width="5%"><a asp-action="Upsert" asp-route-id="@recipe.Id" class="admin-btn">Edit</a></td>
-                    <td width="5%"><a asp-action="Delete" asp-route-id="@recipe.Id" class="admin-btn">Delete</a></td>
+                    <td width="5%"><a asp-action="Upsert" asp-route-id="@recipe.Id" class="admin-btn">Edytuj</a></td>
+                    <td width="5%"><a asp-action="Delete" asp-route-id="@recipe.Id" class="admin-btn">Usuń</a></td>
                 </tr>
             }
         </tbody>
@@ -57,5 +61,5 @@
 }
 else
 {
-    <p>There are no recipes in the database!</p>
+    <p>Nie ma żadnych przepisów w bazie danych!</p>
 }
