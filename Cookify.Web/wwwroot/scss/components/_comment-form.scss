@@ -1,0 +1,15 @@
+.comment-form{
+  @include d-flex($dir: column);
+
+  &__title{
+    margin-bottom: 10px;
+  }
+
+  & textarea{
+    margin-bottom: 15px;
+  }
+
+  & .ck-btn{
+    margin-left: auto;
+  }
+}
