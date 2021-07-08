@@ -21,15 +21,25 @@ namespace Cookify.Areas.User.Controllers
 
         public IActionResult Index()
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+            bool isAuthenticated = User.Identity.IsAuthenticated;
+            if (isAuthenticated)
+            {
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            var favoriteRecipes = _unitOfWork.FavoriteRecipe.GetAll(recipe => recipe.ApplicationUserId.Equals(currentUserId));
-            IEnumerable<int> favoriteRecipeIds = favoriteRecipes.Select(i => i.RecipeId);
+                var favoriteRecipes = _unitOfWork.FavoriteRecipe.GetAll(recipe => recipe.ApplicationUserId.Equals(currentUserId));
+                IEnumerable<int> favoriteRecipeIds = favoriteRecipes.Select(i => i.RecipeId);
 
-            var recipes = _unitOfWork.Recipe.GetAll(recipe => favoriteRecipeIds.Contains(recipe.Id));
+                var recipes = _unitOfWork.Recipe.GetAll(recipe => favoriteRecipeIds.Contains(recipe.Id));
+                return View(recipes);
+            } 
+            else
+            {
+                return RedirectToPage("/Account/Login", new { area = "Identity" });
+            }
+                
             
-            return View(recipes);
+            
         }
     }
 }
