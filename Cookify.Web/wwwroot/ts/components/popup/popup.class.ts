@@ -19,6 +19,10 @@ export class Popup{
   }
 
   init(){
+    setTimeout(() => {
+      this.popup.classList.add('loaded');
+    }, 50);
+
     this.setupOpeners();
     this.setupClosers();
   }

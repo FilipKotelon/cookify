@@ -6,7 +6,14 @@
   background: rgba(235, 150, 5, 0.95);
   opacity: 0;
   pointer-events: none;
-  @include transition;
+
+  &:not(.loaded){
+    display: none;
+  }
+
+  &.loaded{
+    @include transition;
+  }
 
   &.open{
     opacity: 1;

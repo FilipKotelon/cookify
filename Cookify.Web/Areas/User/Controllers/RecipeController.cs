@@ -147,6 +147,15 @@ namespace Cookify.Areas.User.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (recipeViewModel.Recipe.RecipeCategoryId == 0)
+                {
+                    if(_unitOfWork.RecipeCategory.GetFirstOrDefault() != null)
+                    {
+                        //Just as a placeholder, category will be set by admin
+                        recipeViewModel.Recipe.RecipeCategoryId = _unitOfWork.RecipeCategory.GetFirstOrDefault().Id;
+                    }
+                }
+
                 if (recipeViewModel.Recipe.Id == 0)
                 {
                     _unitOfWork.Recipe.Add(recipeViewModel.Recipe);
