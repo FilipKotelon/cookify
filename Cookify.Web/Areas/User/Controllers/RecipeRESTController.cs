@@ -22,27 +22,37 @@ namespace Cookify.Areas.User.Controllers
 
         [HttpPost("addToFavorites")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult<string>> Create(int id)
+        public async Task<ActionResult<string>> Create(RecipeIdModel idModel)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            FavoriteRecipe favoriteRecipe = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, id);
+            if(currentUserId == null)
+            {
+                throw new System.Exception("User not logged in");
+            }
+
+            FavoriteRecipe favoriteRecipe = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, idModel.Id);
 
             if (favoriteRecipe != null)
             {
                 int dupa = favoriteRecipe.Id;
                 _unitOfWork.FavoriteRecipe.Remove(dupa);
                 _unitOfWork.Save();
+
+                return "Favorite recipe removed!";
+            } else
+            {
+                favoriteRecipe = new FavoriteRecipe();
+
+                favoriteRecipe.ApplicationUserId = currentUserId;
+                favoriteRecipe.RecipeId = idModel.Id;
+
+                _unitOfWork.FavoriteRecipe.Add(favoriteRecipe);
+                _unitOfWork.Save();
+
+                return "Favorite recipe added!";
             }
-
-            favoriteRecipe.ApplicationUserId = currentUserId;
-            favoriteRecipe.RecipeId = id;
-
-            _unitOfWork.FavoriteRecipe.Add(favoriteRecipe);
-            _unitOfWork.Save();
-
-            throw new System.Exception("DUPA DUPA");
         }
     }
 }

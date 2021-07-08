@@ -1,15 +1,40 @@
 ﻿@model Cookify.Models.ViewModels.RecipeViewModel
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Wyślij swój przepis";
 }
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    var title = "Dodaj nowy przepis";
-}
+<form class="ck-form white-panel" id="account" method="post">
 
-<form method="post">
+    <h1 class="ck-form__title h1">@ViewData["Title"]</h1>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="ck-form__field">
+        <input asp-for="Recipe.Name" class="bordered-input" placeholder="Nazwa przepisu" />
+        <span asp-validation-for="Recipe.Name" class="text-danger"></span>
+    </div>
+    <div class="ck-form__field">
+        <textarea asp-for="Recipe.Description" class="bordered-textarea" placeholder="Opis przepisu"></textarea>
+        <span asp-validation-for="Recipe.Description" class="text-danger"></span>
+    </div>
+    <div class="ck-form__field">
+        <input asp-for="Recipe.DifficultyLevel" class="bordered-input" placeholder="Poziom trudności przepisu" />
+        <span asp-validation-for="Recipe.DifficultyLevel" class="text-danger"></span>
+    </div>
+    <div class="ck-form__field">
+        <input asp-for="Recipe.PreparationTime" class="bordered-input" placeholder="Czas przyrządzenia" />
+        <span asp-validation-for="Recipe.PreparationTime" class="text-danger"></span>
+    </div>
+    <div class="ck-form__field">
+        <input asp-for="Recipe.ImageUrl" class="bordered-input" placeholder="URL zdjęcia przepisu" />
+        <span asp-validation-for="Recipe.ImageUrl" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="ck-btn">Wyślij</button>
+</form>
+
+@*<form method="post">
     <div class="row p-3 border">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         @if (Model.Recipe.Id != 0)
@@ -80,7 +105,7 @@
             </div>
         </div>
     </div>
-</form>
+</form>*@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
