@@ -19,6 +19,10 @@ export class FavoriteHeart{
 
   init(){
     this.setupFilling();
+
+    if(this.filled){
+      this.fillHeart();
+    }
   }
 
   setupFilling(){
