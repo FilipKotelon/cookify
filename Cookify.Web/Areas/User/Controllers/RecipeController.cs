@@ -45,7 +45,7 @@ namespace Cookify.Areas.User.Controllers
             RecipeViewModel recipeViewModel = new RecipeViewModel()
             {
                 Recipe = _unitOfWork.Recipe.GetFirstOrDefault(r => r.Id == id, includeProperties: "RecipeCategory"),
-                Comments = _unitOfWork.Comment.GetAll(comment => comment.RecipeId == id),
+                Comments = _unitOfWork.Comment.GetAll(comment => comment.RecipeId == id, includeProperties: "ApplicationUser"),
                 FavoriteRecipe = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, id),
             };
 
