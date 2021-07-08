@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Cookify.DataAccess.Repository.IRepository;
+﻿using Cookify.DataAccess.Repository.IRepository;
 using Cookify.Models;
 using Cookify.Models.ViewModels;
-using System.Linq;
+using Cookify.Utility;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Linq;
 
 namespace Cookify.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = StaticDetails.Role_Admin)]
     public class RecipeController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
