@@ -61,7 +61,7 @@ namespace Cookify.Areas.Admin.Controllers
             {
                 Id = user.Id,
                 Email = user.Email,
-                UserName = user.UserName,
+                UserName = user.Name,
                 Accepted = user.Accepted,
                 Claims = userClaims.Select(c => c.Value).ToList(),
                 Roles = (System.Collections.Generic.List<string>)userRoles
@@ -84,6 +84,7 @@ namespace Cookify.Areas.Admin.Controllers
             {
                 user.Email = model.Email;
                 user.Name = model.UserName;
+                user.UserName = model.UserName;
                 var result = await _userManager.UpdateAsync(user);
 
                 if (result.Succeeded)
@@ -97,6 +98,33 @@ namespace Cookify.Areas.Admin.Controllers
                 }
                 return View(model);
             }
+        }
+
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
+                return View("NotFound");
+            }
+            else
+            {
+                var result = await _userManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View("Index");
+            }
+
         }
     }
 }
