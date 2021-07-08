@@ -122,6 +122,7 @@ namespace Cookify.Web.Areas.Identity.Pages.Account
                     if(user.Role == null)
                     {
                         await _userManager.AddToRoleAsync(user, StaticDetails.Role_User);
+                        user.Role = StaticDetails.Role_User;
                     } else
                     {
                         await _userManager.AddToRoleAsync(user, user.Role);
