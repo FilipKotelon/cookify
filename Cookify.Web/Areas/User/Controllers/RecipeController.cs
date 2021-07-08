@@ -22,6 +22,18 @@ namespace Cookify.Areas.User.Controllers
         {
             var recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.Accepted == true, includeProperties: "RecipeCategory");
 
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+
+            if (claimsIdentity.FindFirst(ClaimTypes.NameIdentifier) != null)
+            {
+                var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+                foreach (Recipe recipe in recipes)
+                {
+                    recipe.IsFavorite = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, recipe.Id) != null;
+                }
+            }
+
             if (!string.IsNullOrEmpty(search))
             {
                 recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.Name.Contains(search), includeProperties: "RecipeCategory");
@@ -44,7 +56,6 @@ namespace Cookify.Areas.User.Controllers
                 Recipe = _unitOfWork.Recipe.GetFirstOrDefault(r => r.Id == id, includeProperties: "RecipeCategory"),
                 Comments = _unitOfWork.Comment.GetAll(comment => comment.RecipeId == id, includeProperties: "ApplicationUser"),
             };
-
 
             var claimsIdentity = (ClaimsIdentity)User.Identity;
 

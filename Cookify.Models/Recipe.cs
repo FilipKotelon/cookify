@@ -21,5 +21,8 @@ namespace Cookify.Models
 		[ForeignKey("RecipeCategoryId")]
 		public RecipeCategory RecipeCategory { get; set; }
 		public string ImageUrl { get; set; }
+
+		[NotMapped]
+		public bool IsFavorite { get; set; }
 	}
 }

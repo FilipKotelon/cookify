@@ -1,12 +1,16 @@
 ﻿@model Cookify.Models.Recipe
 
+@{
+    var heartFilled = Model.IsFavorite  ? "true" : "false";
+}
+
 <div class="product-grid__item">
 
     <div class="product-grid__item__img-con">
         <a asp-area="User" asp-controller="Recipe" asp-action="Details" asp-route-id="@Model.Id" class="product-grid_item">
             <img src="@Model.ImageUrl" alt="" class="product-grid__item__img">
         </a>
-        <div class="favorite-heart" data-recipe-id="@Model.Id">
+        <div class="favorite-heart" data-filled="@heartFilled" data-recipe-id="@Model.Id">
             <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">
             <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
         </div>
