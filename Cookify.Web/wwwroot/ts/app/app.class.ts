@@ -22,7 +22,7 @@ export class App{
 
   setupFavorites() {
     const hearts = document.querySelectorAll('.favorite-heart');
-    hearts.forEach(heart => new FavoriteHeart(heart as HTMLElement, false));
+    hearts.forEach(heart => new FavoriteHeart(heart as HTMLElement));
   }
 
   setupPopups(){

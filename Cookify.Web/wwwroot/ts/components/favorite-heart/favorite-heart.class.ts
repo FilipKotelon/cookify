@@ -9,10 +9,10 @@ export class FavoriteHeart{
   filled: boolean;
   recipeId: number;
 
-  constructor(el: HTMLElement, checked = false) {
+  constructor(el: HTMLElement) {
     this.api = new API();
     this.el = el;
-    this.filled = checked;
+    this.filled = this.el.dataset.filled === 'true';
     this.recipeId = parseInt(this.el.dataset.recipeId);
     this.init();
   }
