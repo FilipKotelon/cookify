@@ -8,6 +8,7 @@
 
     & img{
       @include rect(100%, 500px);
+      border-radius: 5px;
       object-fit: cover;
     }
   }
@@ -58,7 +59,12 @@
 
     &__section{
       &__title{
+        @include d-flex($ai: center);
         margin-bottom: 18px;
+
+        & img{
+          margin-right: 12px;
+        }
       }
 
       & .comments{
