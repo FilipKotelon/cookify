@@ -27,14 +27,14 @@
             <img src="~/assets/icons/components/search-orange.svg" alt="Szukaj" />
             <span>Szukaj</span>
         </div>
-        <a href="#" class="ck-nav__links__item">
-            <img src="~/assets/icons/components/checked-list-orange.svg" alt="Lista zakupów" />
-            <span>Lista zakupów</span>
-        </a>
-        <a asp-area="User" asp-controller="FavoriteRecipe" asp-action="Index" class="ck-nav__links__item">
-            <img src="~/assets/icons/components/heart-orange.svg" alt="Ulubione" />
-            <span>Ulubione</span>
-        </a>
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <a asp-area="User" asp-controller="FavoriteRecipe" asp-action="Index" class="ck-nav__links__item">
+                <img src="~/assets/icons/components/heart-orange.svg" alt="Ulubione" />
+                <span>Ulubione</span>
+            </a>
+
+        }
         <div class="ck-nav__links__item ck-dropdown-menu-con">
             <a href="#" class="ck-nav__links__item">
                 <img src="~/assets/icons/components/user-orange.svg" alt="Profil" />
