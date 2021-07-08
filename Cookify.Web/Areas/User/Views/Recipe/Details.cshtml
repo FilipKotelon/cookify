@@ -4,11 +4,11 @@
 {
     <article class="single-recipe">
         <div class="single-recipe__img-con">
-            <img src="~/assets/placeholders/chicken.jpg" />
+            <img src="@Model.Recipe.ImageUrl" />
         </div>
         <div class="single-recipe__main">
             <div class="single-recipe__content">
-                <h1 class="single-recipe__content__title h2 white-panel">
+                <h1 class="single-recipe__content__title white-panel">
                     @Model.Recipe.Name
                 </h1>
                 <div class="single-recipe__content__section white-panel">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="single-recipe__content__section white-panel">
                     <h2 class="single-recipe__content__section__title h3">
-                        <img src="~/assets/icons/components/comment-green.svg" alt="">
+                        <img src="~/assets/icons/components/comment.svg" alt="">
                         <span>Komentarze (@Model.Comments.Count())</span>
                     </h2>
                     <form method="post" class="comment-form">
@@ -54,22 +54,24 @@
                     </div>
                 </div>
             </div>
-            <div class="single-recipe__sidebar">
-                <div class="single-recipe__sidebar__item ck-tooltip-con">
-                    <div class="favorite-heart">
-                        <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">
-                        <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
+            <div class="single-recipe__sidebar-con">
+                <div class="single-recipe__sidebar">
+                    <div class="single-recipe__sidebar__item ck-tooltip-con">
+                        <div class="favorite-heart">
+                            <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">
+                            <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
+                        </div>
+                        <div class="ck-tooltip">
+                            dodaj do ulubionych
+                        </div>
                     </div>
-                    <div class="ck-tooltip">
-                        dodaj do ulubionych
-                    </div>
-                </div>
-                <div class="single-recipe__sidebar__item ck-tooltip-con go-to-comments">
-                    <div class="single-recipe__sidebar__item__inner">
-                        <img src="~/assets/icons/components/comment-green.svg" alt="">
-                    </div>
-                    <div class="ck-tooltip">
-                        napisz komentarz
+                    <div class="single-recipe__sidebar__item ck-tooltip-con go-to-comments">
+                        <div class="single-recipe__sidebar__item__inner">
+                            <img src="~/assets/icons/components/comment-green.svg" alt="">
+                        </div>
+                        <div class="ck-tooltip">
+                            napisz komentarz
+                        </div>
                     </div>
                 </div>
             </div>

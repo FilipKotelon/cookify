@@ -1,0 +1,25 @@
+.ck-tooltip{
+  &-con{
+    position: relative;
+
+    &:hover{
+      & .ck-tooltip{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  @include abs-center-y;
+  left: calc(100% + 14px);
+  background-color: $grey-600;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  color: $white;
+  padding: 6px;
+  opacity: 0;
+  visibility: hidden;
+  @include transition;
+  white-space: nowrap;
+}

@@ -1,0 +1,65 @@
+.single-recipe{
+  @include d-flex($dir: column);
+  max-width: 1110px;
+  margin: 0 auto;
+
+  &__img-con{
+    margin-bottom: 30px;
+
+    & img{
+      @include rect(100%, 500px);
+      object-fit: cover;
+    }
+  }
+
+  &__main{
+    @include d-flex($dir: column, $ai: center);
+    position: relative;
+  }
+
+  &__sidebar{
+    &-con{
+      @include abs($r: 0, $t: 0);
+      height: 100%;
+    }
+
+    @include d-flex($dir: column);
+    position: sticky;
+    top: 90px;
+    @include m-not-last(12px, b);
+
+    &__item{
+      & .favorite-heart{
+        @include square(60px);
+      }
+
+      &__inner{
+        @include circle(60px);
+        background-color: $white;
+        cursor: pointer;
+
+        & img{
+          width: 70%;
+        }
+      }
+    }
+  }
+
+  &__content{
+    @include m-not-last(30px, b);
+    width: 790px;
+
+    &__title{
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 39px;
+      color: $black;
+    }
+
+    &__section{
+      &__title{
+        margin-bottom: 18px;
+      }
+    }
+  }
+}
