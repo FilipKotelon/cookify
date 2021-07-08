@@ -39,15 +39,20 @@ namespace Cookify.Areas.User.Controllers
 
         public IActionResult Details(int id)
         {
-            var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
-
             RecipeViewModel recipeViewModel = new RecipeViewModel()
             {
                 Recipe = _unitOfWork.Recipe.GetFirstOrDefault(r => r.Id == id, includeProperties: "RecipeCategory"),
                 Comments = _unitOfWork.Comment.GetAll(comment => comment.RecipeId == id, includeProperties: "ApplicationUser"),
-                FavoriteRecipe = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, id),
             };
+
+
+            var claimsIdentity = (ClaimsIdentity)User.Identity;
+
+            if (claimsIdentity.FindFirst(ClaimTypes.NameIdentifier) != null)
+			{
+                var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
+                recipeViewModel.FavoriteRecipe = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, id);
+            }
 
             return View(recipeViewModel);
         }
