@@ -1,17 +1,83 @@
 ﻿@model Cookify.Models.ViewModels.RecipeViewModel
 
-@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+@if (Model != null)
+{
+    <article class="single-recipe">
+        <div class="single-recipe__img-con">
+            <img src="~/assets/placeholders/chicken.jpg" />
+        </div>
+        <div class="single-recipe__main">
+            <div class="single-recipe__content">
+                <h1 class="single-recipe__content__title h2 white-panel">
+                    @Model.Recipe.Name
+                </h1>
+                <div class="single-recipe__content__section white-panel">
+                    <h2 class="single-recipe__content__section__title h3">Składniki</h2>
+                    <p>
+                        @Model.Recipe.Description
+                    </p>
+                </div>
+                <div class="single-recipe__content__section white-panel">
+                    <h2 class="single-recipe__content__section__title h3">Instrukcje</h2>
+                    <p>
+                        @Model.Recipe.Description
+                    </p>
+                </div>
+                <div class="single-recipe__content__section white-panel">
+                    <h2 class="single-recipe__content__section__title h3">
+                        <img src="~/assets/icons/components/comment-green.svg" alt="">
+                        <span>Komentarze (@Model.Comments.Count())</span>
+                    </h2>
+                    <form method="post" class="comment-form">
+                        <div class="comment-form__title mobile-h2">
+                            Napisz komentarz
+                        </div>
+                        <textarea asp-for="Comment.Content" placeholder="Twój komentarz..." class="bordered-textarea"></textarea>
+
+                        <input hidden asp-for="Comment.RecipeId" value="@Model.Recipe.Id" />
+                        <input hidden asp-for="FavoriteRecipe.RecipeId" value="@Model.Recipe.Id" />
+
+                        <button asp-controller="Recipe" asp-action="AddComment" class="comment-form__submit ck-btn">Wyślij</button>
+                    </form>
+                    <div class="comments">
+                        @foreach (var comment in Model.Comments)
+                        {
+                            <div class="comments__item">
+                                <div class="comments__item__title mobile-h2">
+                                    @comment.ApplicationUser.Name
+                                </div>
+                                <div class="comments__item__content">
+                                    @comment.Content
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="single-recipe__sidebar">
+                <div class="single-recipe__sidebar__item ck-tooltip-con">
+                    <div class="favorite-heart">
+                        <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">
+                        <img class="heart-filled" src="~/assets/icons/components/heart-filled.svg" alt="">
+                    </div>
+                    <div class="ck-tooltip">
+                        dodaj do ulubionych
+                    </div>
+                </div>
+                <div class="single-recipe__sidebar__item ck-tooltip-con go-to-comments">
+                    <div class="single-recipe__sidebar__item__inner">
+                        <img src="~/assets/icons/components/comment-green.svg" alt="">
+                    </div>
+                    <div class="ck-tooltip">
+                        napisz komentarz
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
 }
 
-<br />
-<div class="row">
-    <div class="col-6">
-        <h2 class="text-primary">Recipe "@Model.Recipe.Name" details:</h2>
-    </div>
-</div>
-
-<br />
+@*<br />
 <div class="p-4 border rounded">
     @if (Model != null)
     {
@@ -89,4 +155,4 @@
     {
         <p>Something went wrong! :(</p>
     }
-</div>
+</div>*@
