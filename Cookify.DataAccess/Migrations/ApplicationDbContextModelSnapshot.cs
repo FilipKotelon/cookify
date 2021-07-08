@@ -96,13 +96,13 @@ namespace Cookify.DataAccess.Migrations
                         {
                             Id = 2,
                             Path = "https://cdn.pixabay.com/photo/2014/12/15/13/40/penne-569072_960_720.jpg",
-                            Title = "Pasta"
+                            Title = "Makaron"
                         },
                         new
                         {
                             Id = 3,
                             Path = "https://cdn.pixabay.com/photo/2014/02/01/17/28/apple-256263_960_720.jpg",
-                            Title = "Apple"
+                            Title = "Jabłko"
                         },
                         new
                         {
@@ -120,13 +120,13 @@ namespace Cookify.DataAccess.Migrations
                         {
                             Id = 6,
                             Path = "https://cdn.pixabay.com/photo/2017/03/31/10/56/waffles-2190961_960_720.jpg",
-                            Title = "Eggs"
+                            Title = "Jajka"
                         },
                         new
                         {
                             Id = 7,
                             Path = "https://cdn.pixabay.com/photo/2017/03/13/13/39/pancakes-2139844_960_720.jpg",
-                            Title = "Pancakes"
+                            Title = "Naleśniki"
                         });
                 });
 
@@ -173,44 +173,44 @@ namespace Cookify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "The tomato is the edible berry of the plant Solanum lycopersicum, commonly known as a tomato plant. The species originated in western South America and Central America.",
-                            Name = "Tomato"
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            Name = "Pomidor"
                         },
                         new
                         {
                             Id = 2,
-                            Description = "Cucumber (Cucumis sativus) is a widely-cultivated creeping vine plant in the Cucurbitaceae gourd family that bears cucumiform fruits, which are used as vegetables.",
-                            Name = "Cucumber"
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            Name = "Ogórek"
                         },
                         new
                         {
                             Id = 3,
-                            Description = "An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus.",
-                            Name = "Apple"
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            Name = "Jabłko"
                         },
                         new
                         {
                             Id = 4,
-                            Description = "Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistoric times. Beef is a source of protein and nutrients.",
-                            Name = "Beef"
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            Name = "Wołowina"
                         },
                         new
                         {
                             Id = 5,
-                            Description = "Butter is a dairy product made from the fat and protein components of churned cream. It is a semi-solid emulsion at room temperature, consisting of approximately 80% butterfat.",
-                            Name = "Butter"
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            Name = "Masło"
                         },
                         new
                         {
                             Id = 6,
-                            Description = "Milk (also known in unfermented form as sweet milk) is a nutrient-rich liquid food produced by the mammary glands of mammals. ",
-                            Name = "Milk"
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            Name = "Mleko"
                         },
                         new
                         {
                             Id = 7,
-                            Description = "The potato is a root vegetable native to the Americas, a starchy tuber of the plant Solanum tuberosum, and the plant itself is a perennial in the nightshade family, Solanaceae",
-                            Name = "Potato"
+                            Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                            Name = "Ziemniak"
                         });
                 });
 
@@ -252,6 +252,9 @@ namespace Cookify.DataAccess.Migrations
                     b.Property<string>("DifficultyLevel")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -273,7 +276,10 @@ namespace Cookify.DataAccess.Migrations
                             Id = 1,
                             Accepted = true,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            DifficultyLevel = "Prosty",
+                            ImageUrl = "https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_960_720.jpg",
                             Name = "Lorem ipsum",
+                            PreparationTime = "2 godziny",
                             RecipeCategoryId = 1
                         },
                         new
@@ -281,7 +287,10 @@ namespace Cookify.DataAccess.Migrations
                             Id = 2,
                             Accepted = true,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            DifficultyLevel = "Trudny",
+                            ImageUrl = "https://cdn.pixabay.com/photo/2014/12/15/13/40/penne-569072_960_720.jpg",
                             Name = "Dolor sit amet",
+                            PreparationTime = "1 godzina",
                             RecipeCategoryId = 2
                         },
                         new
@@ -289,7 +298,10 @@ namespace Cookify.DataAccess.Migrations
                             Id = 3,
                             Accepted = true,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            DifficultyLevel = "Średni",
+                            ImageUrl = "https://cdn.pixabay.com/photo/2014/02/01/17/28/apple-256263_960_720.jpg",
                             Name = "Consectetur adipiscing elit",
+                            PreparationTime = "30 minut",
                             RecipeCategoryId = 3
                         },
                         new
@@ -297,7 +309,10 @@ namespace Cookify.DataAccess.Migrations
                             Id = 4,
                             Accepted = true,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            DifficultyLevel = "Prosty",
+                            ImageUrl = "https://cdn.pixabay.com/photo/2017/01/17/17/05/spaghetti-1987454_960_720.jpg",
                             Name = "Sed diam purus",
+                            PreparationTime = "1,5 godziny",
                             RecipeCategoryId = 4
                         },
                         new
@@ -305,15 +320,21 @@ namespace Cookify.DataAccess.Migrations
                             Id = 5,
                             Accepted = true,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            DifficultyLevel = "Trudny",
+                            ImageUrl = "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg",
                             Name = "Tincidunt eget suscipit",
-                            RecipeCategoryId = 4
+                            PreparationTime = "45 minut",
+                            RecipeCategoryId = 5
                         },
                         new
                         {
                             Id = 6,
                             Accepted = true,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            DifficultyLevel = "Średni",
+                            ImageUrl = "https://cdn.pixabay.com/photo/2017/03/31/10/56/waffles-2190961_960_720.jpg",
                             Name = "A, imperdiet sit amet lacus",
+                            PreparationTime = "50 minut",
                             RecipeCategoryId = 6
                         },
                         new
@@ -321,7 +342,10 @@ namespace Cookify.DataAccess.Migrations
                             Id = 7,
                             Accepted = true,
                             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                            DifficultyLevel = "Trudny",
+                            ImageUrl = "https://cdn.pixabay.com/photo/2017/03/13/13/39/pancakes-2139844_960_720.jpg",
                             Name = "Vivamus non turpis",
+                            PreparationTime = "2,5 godziny",
                             RecipeCategoryId = 7
                         });
                 });
@@ -332,6 +356,9 @@ namespace Cookify.DataAccess.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -344,37 +371,44 @@ namespace Cookify.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Title = "Vegetarian"
+                            ImageUrl = "https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_960_720.jpg",
+                            Title = "Wege"
                         },
                         new
                         {
                             Id = 2,
-                            Title = "Dinner"
+                            ImageUrl = "https://cdn.pixabay.com/photo/2020/06/02/18/10/noodles-5252012_960_720.jpg",
+                            Title = "Obiady"
                         },
                         new
                         {
                             Id = 3,
-                            Title = "Breakfast"
+                            ImageUrl = "https://cdn.pixabay.com/photo/2014/09/22/14/49/breakfast-456351_960_720.jpg",
+                            Title = "Śniadania"
                         },
                         new
                         {
                             Id = 4,
-                            Title = "Healthy"
+                            ImageUrl = "https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_960_720.jpg",
+                            Title = "Zdrowe"
                         },
                         new
                         {
                             Id = 5,
-                            Title = "Fastfood"
+                            ImageUrl = "https://cdn.pixabay.com/photo/2020/03/29/22/42/burger-4982550_960_720.jpg",
+                            Title = "Fastfoody"
                         },
                         new
                         {
                             Id = 6,
-                            Title = "Vegetarian"
+                            ImageUrl = "https://cdn.pixabay.com/photo/2020/03/20/20/49/cocktail-4951991_960_720.jpg",
+                            Title = "Koktaile"
                         },
                         new
                         {
                             Id = 7,
-                            Title = "Dessert"
+                            ImageUrl = "https://cdn.pixabay.com/photo/2017/03/31/18/02/strawberry-dessert-2191973_960_720.jpg",
+                            Title = "Desery"
                         });
                 });
 
