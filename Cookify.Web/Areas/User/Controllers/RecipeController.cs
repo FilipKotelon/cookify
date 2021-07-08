@@ -18,16 +18,22 @@ namespace Cookify.Areas.User.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        public IActionResult Index(string search)
+        public IActionResult Index(string search, string category)
         {
             var recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.Accepted == true, includeProperties: "RecipeCategory");
 
-            if (string.IsNullOrEmpty(search))
+            if (!string.IsNullOrEmpty(search))
             {
+                recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.Name.Contains(search), includeProperties: "RecipeCategory");
                 return View(recipes);
             }
 
-            recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.Name.Contains(search), includeProperties: "RecipeCategory");
+            if (!string.IsNullOrEmpty(category))
+			{
+                recipes = _unitOfWork.Recipe.GetAll(recipe => recipe.RecipeCategory.Title.Equals(category), includeProperties: "RecipeCategory");
+                return View(recipes);
+            }
+
             return View(recipes);
         }
 

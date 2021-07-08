@@ -10,7 +10,7 @@
                 {
                     @foreach (var recipeCategory in Model)
                     {
-                        <a href="#" class="category-panels__item">
+                        <a asp-controller="Recipe" asp-action="Index" asp-route-category="@recipeCategory.Title" class="category-panels__item">
                             <img src="@recipeCategory.ImageUrl" class="category-panels__item__bg" />
                             <div class="category-panels__item__content">
                                 <span>@recipeCategory.Title</span>
