@@ -26,9 +26,14 @@
                 </a>
             </div>
         </div>
-        <a href="#" class="ck-nav__links__item">
-            <span>Użytkownicy</span>
-        </a>
+        <div class="ck-nav__links__item ck-dropdown-menu-con">
+            <a asp-area="Admin" asp-controller="User" asp-action="Index">Użytkownicy</a>
+            <div class="ck-dropdown-menu">
+                <a asp-area="Identity" asp-page="/Account/Register" class="ck-dropdown-menu__link">
+                    Dodaj użytkownika
+                </a>
+            </div>
+        </div>
         <a asp-area="Admin" asp-controller="Image" asp-action="Index" class="ck-nav__links__item">
             <span>Zdjęcia</span>
         </a>
