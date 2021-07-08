@@ -1,0 +1,43 @@
+﻿@model Cookify.Models.ViewModels.EditUserViewModel
+
+@{
+    ViewBag.Title = "Edytuj użytkownika";
+}
+
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+    <div class="admin-header">
+        <h1 class="admin-header__title">@ViewBag.Title</h1>
+    </div>
+    <div class="admin-form">
+        <div class="admin-form__group">
+            <label asp-for="Id"></label>
+            <input asp-for="Id" />
+            <span asp-validation-for="UserName" disabled class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="UserName">User Name</label>
+            <input asp-for="UserName" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="Accepted"></label>
+            <input type="checkbox" asp-for="Accepted" checked="checked" />
+        </div>
+        <div class="admin-btn-group">
+            <button type="submit" class="admin-btn" asp-route-id="@Model.Id">Zapisz</button>
+            <a asp-area="Admin" asp-controller="User" asp-action="Index" class="admin-btn">Wróc do listy użytkowników</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

@@ -5,6 +5,9 @@ using Cookify.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Cookify.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using System.Threading.Tasks;
 
 namespace Cookify.Areas.Admin.Controllers
 {
@@ -14,11 +17,16 @@ namespace Cookify.Areas.Admin.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ApplicationDbContext _db;
+        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public UserController(IUnitOfWork unitOfWork, ApplicationDbContext db)
+        public UserController(IUnitOfWork unitOfWork, ApplicationDbContext db,
+            RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             _unitOfWork = unitOfWork;
             _db = db;
+            _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -35,13 +43,30 @@ namespace Cookify.Areas.Admin.Controllers
             return View(userList);
         }
 
-        public IActionResult Upsert(int? id)
+        public async Task<IActionResult> EditUser(string id)
         {
-            ApplicationUser user = new ApplicationUser();
+            var user = await _userManager.FindByIdAsync(id);
 
-            user = _unitOfWork.ApplicationUser.GetFirstOrDefault(u => u.Id == id.ToString());
+            if (user == null)
+            {
+                ViewBag.ErrorMessage = $"User with Id = {id} cannot be found";
+                return View("NotFound");
+            }
 
-            return View(user);
+            var userClaims = await _userManager.GetClaimsAsync(user);
+            var userRoles = await _userManager.GetRolesAsync(user);
+
+            var model = new EditUserViewModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                UserName = user.UserName,
+                Accepted = user.Accepted,
+                Claims = userClaims.Select(c => c.Value).ToList(),
+                Roles = (System.Collections.Generic.List<string>)userRoles
+            };
+
+            return View(model);
         }
     }
 }
