@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Cookify.DataAccess.Migrations
 {
-    public partial class UpdateDbSchemaAndAddSeedData : Migration
+    public partial class UpdateDatabaseSchema : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -83,7 +83,8 @@ namespace Cookify.DataAccess.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -197,12 +198,39 @@ namespace Cookify.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Recipe",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Accepted = table.Column<bool>(type: "bit", nullable: false),
+                    PreparationTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DifficultyLevel = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    RecipeCategoryId = table.Column<int>(type: "int", nullable: false),
+                    ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recipe", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Recipe_RecipeCategory_RecipeCategoryId",
+                        column: x => x.RecipeCategoryId,
+                        principalTable: "RecipeCategory",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Comment",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RecipeId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -213,26 +241,10 @@ namespace Cookify.DataAccess.Migrations
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Recipe",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Accepted = table.Column<bool>(type: "bit", nullable: false),
-                    RecipeCategoryId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Recipe", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Recipe_RecipeCategory_RecipeCategoryId",
-                        column: x => x.RecipeCategoryId,
-                        principalTable: "RecipeCategory",
+                        name: "FK_Comment_Recipe_RecipeId",
+                        column: x => x.RecipeId,
+                        principalTable: "Recipe",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -321,12 +333,12 @@ namespace Cookify.DataAccess.Migrations
                 values: new object[,]
                 {
                     { 1, "https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_960_720.jpg", "Burger" },
-                    { 2, "https://cdn.pixabay.com/photo/2014/12/15/13/40/penne-569072_960_720.jpg", "Pasta" },
-                    { 3, "https://cdn.pixabay.com/photo/2014/02/01/17/28/apple-256263_960_720.jpg", "Apple" },
+                    { 2, "https://cdn.pixabay.com/photo/2014/12/15/13/40/penne-569072_960_720.jpg", "Makaron" },
+                    { 3, "https://cdn.pixabay.com/photo/2014/02/01/17/28/apple-256263_960_720.jpg", "Jabłko" },
                     { 4, "https://cdn.pixabay.com/photo/2017/01/17/17/05/spaghetti-1987454_960_720.jpg", "Spaghetti" },
                     { 5, "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg", "Pizza" },
-                    { 6, "https://cdn.pixabay.com/photo/2017/03/31/10/56/waffles-2190961_960_720.jpg", "Eggs" },
-                    { 7, "https://cdn.pixabay.com/photo/2017/03/13/13/39/pancakes-2139844_960_720.jpg", "Pancakes" }
+                    { 6, "https://cdn.pixabay.com/photo/2017/03/31/10/56/waffles-2190961_960_720.jpg", "Jajka" },
+                    { 7, "https://cdn.pixabay.com/photo/2017/03/13/13/39/pancakes-2139844_960_720.jpg", "Naleśniki" }
                 });
 
             migrationBuilder.InsertData(
@@ -334,41 +346,41 @@ namespace Cookify.DataAccess.Migrations
                 columns: new[] { "Id", "Description", "Name" },
                 values: new object[,]
                 {
-                    { 7, "The potato is a root vegetable native to the Americas, a starchy tuber of the plant Solanum tuberosum, and the plant itself is a perennial in the nightshade family, Solanaceae", "Potato" },
-                    { 6, "Milk (also known in unfermented form as sweet milk) is a nutrient-rich liquid food produced by the mammary glands of mammals. ", "Milk" },
-                    { 5, "Butter is a dairy product made from the fat and protein components of churned cream. It is a semi-solid emulsion at room temperature, consisting of approximately 80% butterfat.", "Butter" },
-                    { 4, "Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistoric times. Beef is a source of protein and nutrients.", "Beef" },
-                    { 3, "An apple is an edible fruit produced by an apple tree (Malus domestica). Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus.", "Apple" },
-                    { 2, "Cucumber (Cucumis sativus) is a widely-cultivated creeping vine plant in the Cucurbitaceae gourd family that bears cucumiform fruits, which are used as vegetables.", "Cucumber" },
-                    { 1, "The tomato is the edible berry of the plant Solanum lycopersicum, commonly known as a tomato plant. The species originated in western South America and Central America.", "Tomato" }
+                    { 7, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "Ziemniak" },
+                    { 6, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "Mleko" },
+                    { 5, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "Masło" },
+                    { 4, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "Wołowina" },
+                    { 3, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "Jabłko" },
+                    { 2, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "Ogórek" },
+                    { 1, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", "Pomidor" }
                 });
 
             migrationBuilder.InsertData(
                 table: "RecipeCategory",
-                columns: new[] { "Id", "Title" },
+                columns: new[] { "Id", "ImageUrl", "Title" },
                 values: new object[,]
                 {
-                    { 1, "Vegetarian" },
-                    { 2, "Dinner" },
-                    { 3, "Breakfast" },
-                    { 4, "Healthy" },
-                    { 5, "Fastfood" },
-                    { 6, "Vegetarian" },
-                    { 7, "Dessert" }
+                    { 1, "https://cdn.pixabay.com/photo/2017/09/16/19/21/salad-2756467_960_720.jpg", "Wege" },
+                    { 2, "https://cdn.pixabay.com/photo/2020/06/02/18/10/noodles-5252012_960_720.jpg", "Obiady" },
+                    { 3, "https://cdn.pixabay.com/photo/2014/09/22/14/49/breakfast-456351_960_720.jpg", "Śniadania" },
+                    { 4, "https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_960_720.jpg", "Zdrowe" },
+                    { 5, "https://cdn.pixabay.com/photo/2020/03/29/22/42/burger-4982550_960_720.jpg", "Fastfoody" },
+                    { 6, "https://cdn.pixabay.com/photo/2020/03/20/20/49/cocktail-4951991_960_720.jpg", "Koktaile" },
+                    { 7, "https://cdn.pixabay.com/photo/2017/03/31/18/02/strawberry-dessert-2191973_960_720.jpg", "Desery" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Recipe",
-                columns: new[] { "Id", "Accepted", "Description", "Name", "RecipeCategoryId" },
+                columns: new[] { "Id", "Accepted", "Description", "DifficultyLevel", "ImageUrl", "Name", "PreparationTime", "RecipeCategoryId" },
                 values: new object[,]
                 {
-                    { 1, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Lorem ipsum", 1 },
-                    { 2, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Dolor sit amet", 2 },
-                    { 3, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Consectetur adipiscing elit", 3 },
-                    { 4, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Sed diam purus", 4 },
-                    { 5, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Tincidunt eget suscipit", 4 },
-                    { 6, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "A, imperdiet sit amet lacus", 6 },
-                    { 7, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Vivamus non turpis", 7 }
+                    { 1, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Prosty", "https://cdn.pixabay.com/photo/2015/12/08/00/26/food-1081707_960_720.jpg", "Lorem ipsum", "2 godziny", 1 },
+                    { 2, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Trudny", "https://cdn.pixabay.com/photo/2014/12/15/13/40/penne-569072_960_720.jpg", "Dolor sit amet", "1 godzina", 2 },
+                    { 3, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Średni", "https://cdn.pixabay.com/photo/2014/02/01/17/28/apple-256263_960_720.jpg", "Consectetur adipiscing elit", "30 minut", 3 },
+                    { 4, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Prosty", "https://cdn.pixabay.com/photo/2017/01/17/17/05/spaghetti-1987454_960_720.jpg", "Sed diam purus", "1,5 godziny", 4 },
+                    { 5, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Trudny", "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_960_720.jpg", "Tincidunt eget suscipit", "45 minut", 5 },
+                    { 6, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Średni", "https://cdn.pixabay.com/photo/2017/03/31/10/56/waffles-2190961_960_720.jpg", "A, imperdiet sit amet lacus", "50 minut", 6 },
+                    { 7, true, "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", "Trudny", "https://cdn.pixabay.com/photo/2017/03/13/13/39/pancakes-2139844_960_720.jpg", "Vivamus non turpis", "2,5 godziny", 7 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -414,6 +426,11 @@ namespace Cookify.DataAccess.Migrations
                 name: "IX_Comment_ApplicationUserId",
                 table: "Comment",
                 column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comment_RecipeId",
+                table: "Comment",
+                column: "RecipeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FavoriteRecipe_ApplicationUserId",

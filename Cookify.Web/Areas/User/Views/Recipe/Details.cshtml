@@ -81,23 +81,24 @@
 <div class="p-4 border rounded">
     @if (Model != null)
     {
+        <img src="@Model.Recipe.ImageUrl" width="50%" alt="">
         <table class="table table-bordered table-striped" style="width:100%">
             <thead>
                 <tr>
                     <th>
-                        Name
+                        Nazwa
                     </th>
                     <th>
-                        Description
+                        Opis
                     </th>
                     <th>
-                        Category
+                        Kategoria
                     </th>
                     <th>
-                        Difficulty Level
+                        Poziom trudności
                     </th>
                     <th>
-                        Preparation Time
+                        Czas przygotowania
                     </th>
                 </tr>
             </thead>
@@ -112,27 +113,27 @@
                 <tr>
                     <td colspan="5">
                         <form method="post">
-                            <textarea asp-for="Comment.Content" placeholder="Type content of your comment here..." style="width: 100%;"></textarea><br />
+                            <textarea asp-for="Comment.Content" placeholder="Wpisz tutaj treść swojego komentarza..." style="width: 100%;"></textarea><br />
 
                             <input hidden asp-for="Comment.RecipeId" value="@Model.Recipe.Id" />
                             <input hidden asp-for="FavoriteRecipe.RecipeId" value="@Model.Recipe.Id" />
 
-                            <button asp-controller="Recipe" asp-action="AddComment">Add comment</button>
+                            <button asp-controller="Recipe" asp-action="AddComment">Dodaj komentarz</button>
 
                             @if (Model.FavoriteRecipe == null)
                             {
-                                <button asp-controller="Recipe" asp-action="AddToFavorites">Add to favorites</button>
+                                <button asp-controller="Recipe" asp-action="AddToFavorites">Dodaj do ulubionych</button>
                             }
                             else
                             {
-                                <button asp-controller="Recipe" asp-action="AddToFavorites">Remove from favorites</button>
+                                <button asp-controller="Recipe" asp-action="AddToFavorites">Usuń z ulubionych</button>
                             }
                         </form>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="5">
-                        <a asp-action="Index">Go back to list of recipes</a>
+                        <a asp-action="Index">Wróć do listy przepisów</a>
                     </td>
                 </tr>
             </tbody>
@@ -148,11 +149,11 @@
         }
         else
         {
-            <p>There are no comments for this recipe.</p>
+            <p>Nie ma komentarzy dla tego przepisu.</p>
         }
     }
     else
     {
-        <p>Something went wrong! :(</p>
+        <p>Coś poszło nie tak! :(</p>
     }
 </div>*@

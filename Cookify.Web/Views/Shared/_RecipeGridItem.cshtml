@@ -4,7 +4,7 @@
 
     <div class="product-grid__item__img-con">
         <a asp-area="User" asp-controller="Recipe" asp-action="Details" asp-route-id="@Model.Id" class="product-grid_item">
-            <img src="~/assets/placeholders/chicken.jpg" alt="" class="product-grid__item__img">
+            <img src="@Model.ImageUrl" alt="" class="product-grid__item__img">
         </a>
         <div class="favorite-heart" data-recipe-id="@Model.Id">
             <img class="heart-empty" src="~/assets/icons/components/heart.svg" alt="">

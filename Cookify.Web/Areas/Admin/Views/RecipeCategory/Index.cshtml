@@ -11,14 +11,17 @@
                 <th width="10%">
                     Id
                 </th>
-                <th width="70%">
-                    Title
+                <th width="40%">
+                    Tytuł
+                </th>
+                <th width="30%">
+                    Adres URL zdjęcia
                 </th>
                 <th width="10%">
-                    Edit
+                    Edytuj
                 </th>
                 <th width="10%">
-                    Delete
+                    Usuń
                 </th>
             </tr>
         </thead>
@@ -27,9 +30,10 @@
             {
             <tr>
                 <td width="10%">@recipeCategory.Id</td>
-                <td width="70%">@recipeCategory.Title</td>
-                <td width="10%"><a asp-action="Upsert" asp-route-id="@recipeCategory.Id" class="admin-btn">Edit</a></td>
-                <td width="10%"><a asp-action="Delete" asp-route-id="@recipeCategory.Id" class="admin-btn">Delete</a></td>
+                <td width="40%">@recipeCategory.Title</td>
+                <td width="30%">@recipeCategory.ImageUrl</td>
+                <td width="10%"><a asp-action="Upsert" asp-route-id="@recipeCategory.Id" class="admin-btn">Edytuj</a></td>
+                <td width="10%"><a asp-action="Delete" asp-route-id="@recipeCategory.Id" class="admin-btn">Usuń</a></td>
             </tr>
             }
         </tbody>
@@ -37,5 +41,5 @@
 }
 else
 {
-    <p>There are no recipe categories in the database!</p>
+    <p>Nie ma żadnych kategorii w bazie danych!</p>
 }
