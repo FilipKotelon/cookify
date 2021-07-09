@@ -31,6 +31,9 @@ namespace Cookify.Areas.User.Controllers
                 IEnumerable<int> favoriteRecipeIds = favoriteRecipes.Select(i => i.RecipeId);
 
                 var recipes = _unitOfWork.Recipe.GetAll(recipe => favoriteRecipeIds.Contains(recipe.Id));
+
+                recipes.ToList().ForEach(recipe => recipe.IsFavorite = true);
+
                 return View(recipes);
             } 
             else
