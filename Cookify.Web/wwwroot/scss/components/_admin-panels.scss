@@ -1,5 +1,5 @@
 .admin-panels{
-  @include flex-row-6(32px);
+  @include flex-row-5(32px);
 
   &__item{
     @include d-flex($center: true);
