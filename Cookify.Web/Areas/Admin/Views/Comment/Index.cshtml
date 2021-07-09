@@ -1,0 +1,54 @@
+﻿<div class="admin-header">
+    <h1 class="admin-header__title">Lista komentarzy</h1>
+</div>
+
+@if (Model.Count > 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th width="10%">
+                    Id
+                </th>
+                <th width="20%">
+                    Nazwa użytkownika
+                </th>
+                <th width="20%">
+                    Email użytkownika
+                </th>
+                <th width="40%">
+                    Treść
+                </th>
+                <th width="10%">
+                    Usuń
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comment in Model)
+            {
+            <tr>
+                <td>
+                    @comment.Id
+                </td>
+                <td>
+                    @comment.ApplicationUser.Name
+                </td>
+                <td>
+                    @comment.ApplicationUser.Email
+                </td>
+                <td>
+                    @comment.Content
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@comment.Id" class="admin-btn">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>There are no ingredients in the database!</p>
+}

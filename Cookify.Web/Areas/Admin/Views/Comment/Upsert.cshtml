@@ -1,0 +1,42 @@
+﻿@model Cookify.Models.Ingredient
+
+@{
+    var title = "Create new ingredient";
+}
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @if (Model.Id != 0)
+    {
+        title = "Edit ingredient";
+    }
+    <div class="admin-header">
+        <h1 class="admin-header__title">@title</h1>
+    </div>
+    <div class="admin-form">
+        <div class="admin-form__group">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="admin-form__group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="admin-form__actions">
+            @if (Model.Id != 0)
+            {
+                <partial name="_EditAndGoBackButton" model="Model.Id" />
+            }
+            else
+            {
+                <partial name="_CreateAndGoBackButton" />
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
