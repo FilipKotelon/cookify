@@ -51,10 +51,10 @@ namespace Cookify.DataAccess.Data
 				new RecipeCategory { Id = 3, Title = "Śniadania", ImageUrl = "https://cdn.pixabay.com/photo/2014/09/22/14/49/breakfast-456351_960_720.jpg" },
 				new RecipeCategory { Id = 4, Title = "Zdrowe", ImageUrl = "https://cdn.pixabay.com/photo/2017/06/06/22/46/mediterranean-cuisine-2378758_960_720.jpg" },
 				new RecipeCategory { Id = 5, Title = "Fastfoody", ImageUrl = "https://cdn.pixabay.com/photo/2020/03/29/22/42/burger-4982550_960_720.jpg" },
-				new RecipeCategory { Id = 6, Title = "Koktaile", ImageUrl = "https://cdn.pixabay.com/photo/2020/03/20/20/49/cocktail-4951991_960_720.jpg" },
+				new RecipeCategory { Id = 6, Title = "Koktajle", ImageUrl = "https://cdn.pixabay.com/photo/2020/03/20/20/49/cocktail-4951991_960_720.jpg" },
 				new RecipeCategory { Id = 7, Title = "Desery", ImageUrl = "https://cdn.pixabay.com/photo/2017/03/31/18/02/strawberry-dessert-2191973_960_720.jpg" },
 				new RecipeCategory { Id = 8, Title = "Przekąski", ImageUrl = "https://images.unsplash.com/photo-1460819739742-50e4486578f5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" },
-				new RecipeCategory { Id = 9, Title = "Saładki", ImageUrl = "https://images.unsplash.com/photo-1571047399553-603e2138b646?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80" },
+				new RecipeCategory { Id = 9, Title = "Sałatki", ImageUrl = "https://images.unsplash.com/photo-1571047399553-603e2138b646?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80" },
 				new RecipeCategory { Id = 10, Title = "Ryby", ImageUrl = "https://images.unsplash.com/photo-1499125562588-29fb8a56b5d5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80" },
 				new RecipeCategory { Id = 11, Title = "Ciasta", ImageUrl = "https://images.unsplash.com/photo-1595904567075-f143cbe1f0c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" },
 				new RecipeCategory { Id = 12, Title = "Naleśniki", ImageUrl = "https://images.unsplash.com/photo-1600326145552-327f74b9c189?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" }
