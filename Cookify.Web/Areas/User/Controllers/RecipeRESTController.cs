@@ -25,12 +25,13 @@ namespace Cookify.Areas.User.Controllers
         public async Task<ActionResult<string>> Create(RecipeIdModel idModel)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
-            var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            if(currentUserId == null)
+            if(claimsIdentity.FindFirst(ClaimTypes.NameIdentifier) == null)
             {
                 throw new System.Exception("User not logged in");
             }
+
+            var currentUserId = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             FavoriteRecipe favoriteRecipe = _unitOfWork.FavoriteRecipe.GetFavoriteRecipeRelatedToUser(currentUserId, idModel.Id);
 
