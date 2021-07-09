@@ -4,14 +4,16 @@ using Cookify.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cookify.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210709131125_RecipesAndCategories")]
+    partial class RecipesAndCategories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -343,7 +345,7 @@ namespace Cookify.DataAccess.Migrations
                             Accepted = true,
                             Description = "In ornare, libero at pulvinar eleifend, est nisl placerat sem, a porta nisi massa ut ex. Morbi ornare maximus arcu, nec aliquam sem dignissim a. Sed accumsan sem diam, et euismod nulla feugiat nec. Suspendisse mattis sem mi, sit amet sagittis erat gravida ut. Curabitur rhoncus sapien et ante maximus sagittis. Sed ac magna sit amet orci fringilla finibus ut ut erat. Fusce ut augue euismod, hendrerit risus non, interdum felis.",
                             DifficultyLevel = "Prosty",
-                            ImageUrl = "https://images.unsplash.com/photo-1588767768106-1b20e51d9d68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80",
+                            ImageUrl = "https://images.unsplash.com/photo-1585032226651-759b368d7246?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
                             Name = "Grillowane udka z kurczaka",
                             PreparationTime = "1h 30min",
                             RecipeCategoryId = 2
@@ -434,11 +436,22 @@ namespace Cookify.DataAccess.Migrations
                             ImageUrl = "https://images.unsplash.com/photo-1607103058027-4c5b42b86a60?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
                             Name = "Precle",
                             PreparationTime = "godzina",
-                            RecipeCategoryId = 8
+                            RecipeCategoryId = 7
                         },
                         new
                         {
                             Id = 16,
+                            Accepted = true,
+                            Description = "In ornare, libero at pulvinar eleifend, est nisl placerat sem, a porta nisi massa ut ex. Morbi ornare maximus arcu, nec aliquam sem dignissim a. Sed accumsan sem diam, et euismod nulla feugiat nec. Suspendisse mattis sem mi, sit amet sagittis erat gravida ut. Curabitur rhoncus sapien et ante maximus sagittis. Sed ac magna sit amet orci fringilla finibus ut ut erat. Fusce ut augue euismod, hendrerit risus non, interdum felis.",
+                            DifficultyLevel = "Zaawansowany",
+                            ImageUrl = "https://images.unsplash.com/photo-1607103058027-4c5b42b86a60?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80",
+                            Name = "Precle",
+                            PreparationTime = "godzina",
+                            RecipeCategoryId = 8
+                        },
+                        new
+                        {
+                            Id = 17,
                             Accepted = true,
                             Description = "In ornare, libero at pulvinar eleifend, est nisl placerat sem, a porta nisi massa ut ex. Morbi ornare maximus arcu, nec aliquam sem dignissim a. Sed accumsan sem diam, et euismod nulla feugiat nec. Suspendisse mattis sem mi, sit amet sagittis erat gravida ut. Curabitur rhoncus sapien et ante maximus sagittis. Sed ac magna sit amet orci fringilla finibus ut ut erat. Fusce ut augue euismod, hendrerit risus non, interdum felis.",
                             DifficultyLevel = "Prosty",
@@ -449,7 +462,7 @@ namespace Cookify.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 17,
+                            Id = 18,
                             Accepted = true,
                             Description = "In ornare, libero at pulvinar eleifend, est nisl placerat sem, a porta nisi massa ut ex. Morbi ornare maximus arcu, nec aliquam sem dignissim a. Sed accumsan sem diam, et euismod nulla feugiat nec. Suspendisse mattis sem mi, sit amet sagittis erat gravida ut. Curabitur rhoncus sapien et ante maximus sagittis. Sed ac magna sit amet orci fringilla finibus ut ut erat. Fusce ut augue euismod, hendrerit risus non, interdum felis.",
                             DifficultyLevel = "Zaawansowany",
@@ -460,7 +473,7 @@ namespace Cookify.DataAccess.Migrations
                         },
                         new
                         {
-                            Id = 18,
+                            Id = 19,
                             Accepted = true,
                             Description = "In ornare, libero at pulvinar eleifend, est nisl placerat sem, a porta nisi massa ut ex. Morbi ornare maximus arcu, nec aliquam sem dignissim a. Sed accumsan sem diam, et euismod nulla feugiat nec. Suspendisse mattis sem mi, sit amet sagittis erat gravida ut. Curabitur rhoncus sapien et ante maximus sagittis. Sed ac magna sit amet orci fringilla finibus ut ut erat. Fusce ut augue euismod, hendrerit risus non, interdum felis.",
                             DifficultyLevel = "Zaawansowany",
