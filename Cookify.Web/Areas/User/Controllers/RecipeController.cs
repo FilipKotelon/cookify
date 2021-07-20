@@ -101,8 +101,7 @@ namespace Cookify.Areas.User.Controllers
 
             if (favoriteRecipe != null)
             {
-                int dupa = favoriteRecipe.Id;
-                _unitOfWork.FavoriteRecipe.Remove(dupa);
+                _unitOfWork.FavoriteRecipe.Remove(favoriteRecipe.Id);
                 _unitOfWork.Save();
                 return RedirectToAction("Details", new { id = recipeViewModel.Comment.RecipeId });
             }
