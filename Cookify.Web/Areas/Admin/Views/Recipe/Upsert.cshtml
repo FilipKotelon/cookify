@@ -27,7 +27,7 @@
         </div>
         <div class="admin-form__group">
             <label>Kategoria</label>
-            @Html.DropDownListFor(m => m.Recipe.RecipeCategoryId, Model.RecipeCategoryList, "> Select recipe category <", new { @class = "form-control" })
+            @Html.DropDownListFor(m => m.Recipe.RecipeCategoryId, Model.RecipeCategoryList, "> Wybierz kategorię przepisu <", new { @class = "form-control" })
             <span asp-validation-for="Recipe.RecipeCategoryId" class="text-danger"></span>
         </div>
         <div class="admin-form__group">

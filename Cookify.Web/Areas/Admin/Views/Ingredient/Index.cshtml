@@ -12,16 +12,16 @@
                     Id
                 </th>
                 <th width="30%">
-                    Name
+                    Nazwa
                 </th>
                 <th width="40%">
-                    Description
+                    Opis
                 </th>
                 <th width="10%">
-                    Edit
+                    Edytuj
                 </th>
                 <th width="10%">
-                    Delete
+                    Usuń
                 </th>
             </tr>
         </thead>
@@ -32,8 +32,8 @@
                 <td width="10%">@ingredient.Id</td>
                 <td width="30%">@ingredient.Name</td>
                 <td width="40%">@ingredient.Description</td>
-                <td width="10%"><a asp-action="Upsert" asp-route-id="@ingredient.Id" class="admin-btn">Edit</a></td>
-                <td width="10%"><a asp-action="Delete" asp-route-id="@ingredient.Id" class="admin-btn">Delete</a></td>
+                <td width="10%"><a asp-action="Upsert" asp-route-id="@ingredient.Id" class="admin-btn">Edytuj</a></td>
+                <td width="10%"><a asp-action="Delete" asp-route-id="@ingredient.Id" class="admin-btn">Usuń</a></td>
             </tr>
             }
         </tbody>
@@ -41,5 +41,5 @@
 }
 else
 {
-    <p>There are no ingredients in the database!</p>
+    <p>Nie znaleziono składników w bazie danych!</p>
 }

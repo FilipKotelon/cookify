@@ -41,7 +41,7 @@
                     @comment.Content
                 </td>
                 <td>
-                    <a asp-action="Delete" asp-route-id="@comment.Id" class="admin-btn">Delete</a>
+                    <a asp-action="Delete" asp-route-id="@comment.Id" class="admin-btn">Usuń</a>
                 </td>
             </tr>
             }
@@ -50,5 +50,5 @@
 }
 else
 {
-    <p>There are no ingredients in the database!</p>
+    <p>Nie znaleziono komentarzy w bazie danych!</p>
 }
